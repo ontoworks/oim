@@ -214,19 +214,21 @@ a
                 :background url(/images/sprite-1.png) no-repeat -110px -26px
               .buddy-info
                 :height 30px
-                :width 120px
                 :float left
                 :margin-left 10px
                 p.name
                   :font-size 11px
                   :margin-top 3px
+                  :width 185px
                 p.name.alone
                   :font-size 11px
                   :margin-top 9px
+                  :width 185px
                 p.message
                   :font-size 10px
                   :color #AAAAAA
                   :margin-top 2px
+                  :width 185px
               span.network-icon
                 :height 16px
                 :width 17px
@@ -239,7 +241,18 @@ a
                 :width 20px
                 :float right
                 :margin-top 5px
-                :margin-right 7px  
+                :margin-right 7px 
+            li.buddy-item.offline
+              :opacity 0.5
+              .buddy-info
+                :height 30px
+                :float left
+                :margin-left 10px 
+                p.name
+                  :font-size 11px
+                  :margin-top 9px
+                  :width 185px
+                  :margin-left 15px     
       .accounts-footer  
         :height 20px
         :width 252px
@@ -308,7 +321,7 @@ a
           :float left
           :background url(/images/sprite-1.png) no-repeat -45px -9px
         .chat-buffer-wrapper
-          :height 576px
+          :height 578px
           :width 674px
           :float left
           :background url(/images/background-right.png) repeat 0 0           
@@ -384,14 +397,17 @@ a
                :-webkit-border-radius 2px
                :border-radius 2px
                .multi-item
-                 :width 580
+                 :border-bottom 1px solid #CCCCCC
                  :float left
+                 :margin 0 3px
+               .multi-item.last
+                 :border none
           .send-message
             :height 32px
-            :width 651px
+            :width 650px
             :background url(/images/background-send-message.png) repeat 0 0
             :float left
-            :margin-left 9px
+            :margin-left 10px
             :border-top solid 1px #CCCCCC
             :border-bottom solid 1px #CCCCCC
             p.label
