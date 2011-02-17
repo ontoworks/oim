@@ -24,23 +24,17 @@ a
         :float left
         :background url(/images/status-wrapper-background.png) repeat 0 0
         .status-icon
-          :height 10px
-          :width 10px
+          :height 16px
+          :width 30px
+          :background url(/images/sprite-1.png) no-repeat -71px -59px
           :float left
-          :margin-top 32px
-          :margin-left 1px
-        .status-icon.available  
-          :background url(/images/sprite-1.png) no-repeat -84px -27px
-        .status-icon.idle
-          :background url(/images/sprite-1.png) no-repeat -98px -27px
-        .status-icon.busy
-          :background url(/images/sprite-1.png) no-repeat -110px -27px
+          :margin-top 30px
         .my-info
           :height 65px
           :width 150px
           :float left
           :margin-top 10px
-          :margin-left 15px
+          :margin-left 7px
           p.name
             :color #FFFFFF
             :font-size 13px
@@ -200,18 +194,13 @@ a
               :height 30px
               :width 100%
               :display block
-              span.status-icon
+              span.status-icon.online
                 :height 10px
                 :width 10px
+                :background url(/images/sprite-1.png) no-repeat -84px -26px
                 :float left
                 :margin-top 9px
                 :margin-left 5px
-              span.status-icon.available
-                :background url(/images/sprite-1.png) no-repeat -84px -26px
-              span.status-icon.idle
-                :background url(/images/sprite-1.png) no-repeat -98px -26px
-              span.status-icon.busy
-                :background url(/images/sprite-1.png) no-repeat -110px -26px
               .buddy-info
                 :height 30px
                 :width 120px
@@ -313,98 +302,39 @@ a
           :float left
           :background url(/images/background-right.png) repeat 0 0           
           .chat-buffer
-            :height 544px
+            :height 500px
             :width 652px
             :float left
             :margin-left 9px
-            .message.odd
+            .message
+              :height 24px
               :width 620px
               :float left
               :margin-left 15px
-              :margin-top 5px 
+              :margin-top 5px
               img.thumb
                 :float left
                 :padding 2px
               .message-background
-                :border 1px solid #B6DCFC
-                :background-color #F5F9FC
+                :height 20px
                 :width 580px
-                :float left
-                :margin-top 2px
-                :margin-left 5px
-                :-moz-border-radius 2px
-                :-webkit-border-radius 2px
-                :border-radius 2px 
-                p.single
-                  :font-size 11px
-                  :padding 4px
-                  :float left
-                  :width 530
-                p.time 
-                  :font-size 11px
-                  :padding 4px
-                  :float right
-                  :color #B6DCFC
-            .message.even
-              :width 620px
-              :float left
-              :margin-left 15px
-              :margin-top 5px 
-              img.thumb
-                :float left
-                :padding 2px
-              .message-background
-                :border 1px solid #CCCCCC
                 :background-color #F7F7F7
-                :width 580px
                 :float left
                 :margin-top 2px
                 :margin-left 5px
                 :-moz-border-radius 2px
                 :-webkit-border-radius 2px
-                :border-radius 2px 
+                :border-radius 2px
+                :border 1px solid #CCCCCC
                 p.single
                   :font-size 11px
                   :padding 4px
                   :float left
-                  :width 530
                 p.time 
                   :font-size 11px
                   :padding 4px
                   :float right
                   :color #CCCCCC
-             .multi.message-background
-               :border 1px solid #B6DCFC
-               :background-color #F5F9FC
-               :width 580px
-               :float left
-               :margin-top 2px
-               :margin-left 5px
-               :-moz-border-radius 2px
-               :-webkit-border-radius 2px
-               :border-radius 2px
-               .multi-item
-                 :width 580
-                 :float left
-          .send-message
-            :height 32px
-            :width 651px
-            :background url(/images/background-send-message.png) repeat 0 0
-            :float left
-            :margin-left 9px
-            :border-top solid 1px #CCCCCC
-            :border-bottom solid 1px #CCCCCC
-            p.label
-              :color #AAAAAA
-              :font-size 12px
-              :float left
-              :margin-top 10px
-              :margin-left 17px
-            input
-              :height 22px
-              :width 520px
-              :float left
-              :margin-top 5px
-              :margin-left 15px
+
 
 

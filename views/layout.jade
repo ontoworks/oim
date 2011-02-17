@@ -1,8 +1,8 @@
 html
   head
     link(rel: 'stylesheet', href: 'css/styles.css', type: 'text/css')
+    link(rel: 'stylesheet', href: 'styl/styles.css', type: 'text/css')
     link(rel: 'stylesheet', href: 'jquery.jgrowl.css', type: 'text/css')
-    link(rel: 'stylesheet', href: 'smoothness/jquery-ui-1.8.7.custom.css', type: 'text/css')
     title= title
   body
     != body
@@ -10,6 +10,10 @@ html
     script(type:"text/javascript", src:"/javascripts/thirdparty/jquery/ui/jquery.ui.core.min.js")
     script(type:"text/javascript", src:"/javascripts/thirdparty/jquery/ui/jquery.ui.widget.min.js")
     script(type:"text/javascript", src:"/javascripts/thirdparty/jquery/ui/jquery.ui.dialog.js")
+    script(type:"text/javascript", src:"/javascripts/thirdparty/jquery/jquery.truncator.js")
     script(type:"text/javascript", src:"/javascripts/thirdparty/strophe/strophe.min.js")
     script(type:"text/javascript", src:"/javascripts/thirdparty/jquery/jgrowl/jquery.jgrowl_minimized.js")
+    script(type:"text/javascript", src:"/socket.io/socket.io.js")
+    script(type:"text/javascript", src:"/javascripts/json.js")
+    script(type:"text/javascript", src:"/javascripts/client.js")
     script(type:"text/javascript", src:"/javascripts/chat.js")
