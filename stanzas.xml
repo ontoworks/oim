@@ -1,0 +1,151 @@
+<presence from="sgaviria@gmail.com/neohomeric702C7192" to="sgaviria@gmail.com/9E61881E" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client">
+  <show>xa</show>
+  <priority>0</priority>
+  <c node="http://www.apple.com/ichat/caps" ver="745" ext="ice recauth rdserver maudio audio rdclient mvideo auxvideo rdmuxing avcap avavail video" xmlns="http://jabber.org/protocol/caps"/>
+  <x xmlns="vcard-temp:x:update">
+    <photo>600f22166f62f85440fa7e1b664b8ffd4e8d88f1</photo>
+  </x>
+</presence>
+
+<presence from="sgaviria@gmail.com/gmail.2D25B6ED" to="sgaviria@gmail.com/9E61881E" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client">
+  <priority>24</priority>
+  <caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 camera-v1 video-v1 voice-v1" xmlns:caps="http://jabber.org/protocol/caps"/>
+  <status/>
+  <x xmlns="vcard-temp:x:update">
+    <photo>600f22166f62f85440fa7e1b664b8ffd4e8d88f1</photo>
+  </x>
+</presence>
+
+<presence from="santiago@ontoworks.com/gmail.2D252CC3" to="sgaviria@gmail.com/9E61881E" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client">
+  <priority>24</priority>
+  <caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 camera-v1 video-v1 voice-v1" xmlns:caps="http://jabber.org/protocol/caps"/>
+  <status>quantum jumping</status>
+  <x xmlns="vcard-temp:x:update"><photo/></x>
+</presence>
+
+<presence from="dk@structuralartistry.com/gmail.2DBD2CC8" to="sgaviria@gmail.com/9E61881E" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client">
+  <show>away</show>
+  <priority>0</priority>
+  <caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/>
+  <status/>
+  <x xmlns="vcard-temp:x:update">
+    <photo/>
+  </x>
+</presence>
+
+<presence from="sirenita@ontoworks.com/marcelillaC7CC856C" to="sgaviria@gmail.com/9E61881E" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>0</priority>
+<c node="http://www.apple.com/ichat/caps" ver="745" ext="ice recauth rdserver maudio audio rdclient mvideo auxvideo rdmuxing avcap avavail video" xmlns="http://jabber.org/protocol/caps"/><x xmlns="vcard-temp:x:update"><photo>c895b1aa9942032217e1690a0eb06c3158c02c19</photo></x></presence>
+[18:27:18] presence
+<presence from="camilo.aguilar@gmail.com/Adium9DD54F1B" to="sgaviria@gmail.com/9E61881E" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><c node="http://pidgin.im/" hash="sha-1" ver="VUFD6HcFmUT2NxJkBGCiKlZnS3M=" xmlns="http://jabber.org/protocol/caps"/><x xmlns="vcard-temp:x:update"><photo>e8951c379f47b33b5e663b9bf8217c796bf801de</photo></x></presence>
+[18:27:18] presence
+<presence from="anthonychaves@gmail.com/gmail.2D2541F2" to="sgaviria@gmail.com/9E61881E" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>24</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><x xmlns="vcard-temp:x:update"><photo>9329a0b312ad517c9521f777ef03730ac2e3ea8f</photo></x></presence>
+[18:27:18] presence
+<presence from="picossio@gmail.com/gmail.2D1784EA" to="sgaviria@gmail.com/9E61881E" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><show>away</show><priority>0</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><x xmlns="vcard-temp:x:update"><photo>35bd2c7e942ed7f74eaf5fdcdfecc27fbb636f43</photo></x></presence>
+[18:27:18] presence
+<presence from="jacksandlerbloom@gmail.com/gmail.2DDCD176" to="sgaviria@gmail.com/9E61881E" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>24</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 camera-v1 video-v1 voice-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><x xmlns="vcard-temp:x:update"><photo/></x></presence>
+[18:27:18] presence
+<presence from="rauchg@gmail.com/Meebo6DCA9ED4" to="sgaviria@gmail.com/9E61881E" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>1</priority><c node="http://pidgin.im/" hash="sha-1" ver="8JLP04uVBCfOcfgcjoG/QFuq48Y=" xmlns="http://jabber.org/protocol/caps"/><x xmlns="vcard-temp:x:update"><photo>f57f6f60acf4e9c3c5cf40118757cbda90e497b4</photo></x></presence>
+[18:27:18] presence
+<presence from="lmolinav@gmail.com/Adium8301153D" to="sgaviria@gmail.com/9E61881E" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><c node="http://pidgin.im/" hash="sha-1" ver="VUFD6HcFmUT2NxJkBGCiKlZnS3M=" xmlns="http://jabber.org/protocol/caps"/><x xmlns="vcard-temp:x:update"><photo>9b37650a8d5a08db9213ada7b6ddc34cca00fcce</photo></x></presence>
+[18:27:18] presence
+[18:27:18] iq
+[18:27:18] iq
+<presence from="lmolinav@gmail.com/Adium8301153D" to="sgaviria@gmail.com" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><c node="http://pidgin.im/" hash="sha-1" ver="VUFD6HcFmUT2NxJkBGCiKlZnS3M=" xmlns="http://jabber.org/protocol/caps"/><x xmlns="vcard-temp:x:update"><photo>fd3e815d101e96c53d1212e52c944af243e7ba9e</photo></x></presence>
+[18:27:35] presence
+<presence from="lmolinav@gmail.com/Adium8301153D" to="sgaviria@gmail.com" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><c node="http://pidgin.im/" hash="sha-1" ver="VUFD6HcFmUT2NxJkBGCiKlZnS3M=" xmlns="http://jabber.org/protocol/caps"/><x xmlns="vcard-temp:x:update"><photo>9b37650a8d5a08db9213ada7b6ddc34cca00fcce</photo></x></presence>
+<presence from="pmontealegrel@gmail.com/Talk.v1050399EA86" to="sgaviria@gmail.com" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client">
+  <show>away</show>
+  <priority>0</priority>
+  <c node="http://www.google.com/xmpp/client/caps" ver="1.0.0.105" ext="voice-v1" xmlns="http://jabber.org/protocol/caps"/>
+  <x stamp="20110215T02:52:23" xmlns="jabber:x:delay"/>
+  <status>¿Para ser colombianos no deberíamos ser latinoamericanos?</status>
+  <x xmlns="vcard-temp:x:update">
+    <photo>97d0b8d30df303c8e7eeb469d2761d72218d2ae8</photo>
+  </x>
+</presence>
+
+<iq type='get'
+    from='romeo@gmail.com/orchard'	
+    id='google-roster-1'>
+  <query xmlns='jabber:iq:roster' xmlns:gr='google:roster' gr:ext='2'/>
+</iq>
+
+
+<iq to="sgaviria@gmail.com/886077CA" id="google-roster-1" type="result" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client">
+  <query gr:ext="2" xmlns="jabber:iq:roster" xmlns:gr="google:roster">
+    <item jid="majaradiaz@gmail.com" subscription="both" name="marcela jaramillo díaz" gr:w="162" gr:mc="615" gr:emc="12" gr:profileurl="http://www.google.com/profiles/114435134280136212380"/>
+    <item jid="camilo.aguilar@gmail.com" subscription="both" name="Camilo Aguilar" gr:w="93" gr:mc="361" gr:emc="5"/>
+    <item jid="ecouplecoach@gmail.com" subscription="both" name="G.Lowell Krane" gr:w="55" gr:mc="5" gr:emc="72" gr:profileurl="http://www.google.com/profiles/100193572830096587704"/>
+    <item jid="alejandra.congote@gmail.com" subscription="both" name="Alejandra Congote" gr:t="B" gr:w="41" gr:mc="161" gr:emc="2"/>
+    <item jid="hrhlizardqueen@gmail.com" subscription="both" name="Liz O&apos;Mara" gr:autosub="true" gr:w="39" gr:mc="5" gr:emc="51" gr:profileurl="http://www.google.com/profiles/105189527234493504872"/>
+    <item jid="sirenita@ontoworks.com" subscription="both" gr:w="32" gr:mc="128"/>
+    <item jid="pmontealegrel@gmail.com" subscription="both" name="Pamela Montealegre" gr:w="19" gr:mc="76" gr:emc="2" gr:profileurl="http://www.google.com/profiles/pmontealegrel"/>
+    <item jid="thomasmraday@gmail.com" subscription="both" name="Tom Raday" gr:w="17" gr:mc="5" gr:emc="22"/>
+    <item jid="aleja0513@gmail.com" subscription="both" name="alejandra sepulveda" gr:w="13" gr:mc="40" gr:emc="5"/>
+    <item jid="purplemc@gmail.com" subscription="both" name="Maria Clara R" gr:w="10" gr:mc="24" gr:emc="6"/><item jid="brolin108@gmail.com" subscription="both" name="brolin ." gr:w="7" gr:mc="16" gr:emc="5"/>
+    <item jid="carloshlopez@gmail.com" subscription="both" name="Carlos López" gr:w="5" gr:mc="5" gr:emc="6" gr:profileurl="http://www.google.com/profiles/107047566044064801425"/>
+    <item jid="eulamesa@gmail.com" subscription="both" gr:w="5" gr:mc="21">
+      <group>Buddies</group>
+    </item>
+    <item jid="mark.coates@gmail.com" subscription="both" name="Mark Coates" gr:autosub="true" gr:w="5" gr:mc="1" gr:emc="7" gr:profileurl="http://www.google.com/profiles/mark.coates"/>
+    <item jid="eamonto@gmail.com" subscription="both" name="Edison Montoya" gr:t="B" gr:w="4" gr:mc="5" gr:emc="5" gr:profileurl="http://www.google.com/profiles/eamonto"/>
+    <item jid="mrs.afro@gmail.com" subscription="both" name="juan" gr:w="4" gr:mc="17" gr:emc="2" gr:profileurl="http://www.google.com/profiles/102535538472074748374"/>
+    <item jid="tulioceballos@gmail.com" subscription="both" name="Tulioi Alberto Ceballos Misas" gr:w="4" gr:mc="5" gr:emc="5" gr:profileurl="http://www.google.com/profiles/107467575200518158551"/>
+    <item jid="santiago@ontoworks.com" subscription="both" name="Santiago Gaviria" gr:w="3" gr:mc="12" gr:emc="1"/>
+    <item jid="alejasepulveda@dicosoftware.com" subscription="none" name="Leidy Alejandra Sepulveda" gr:w="1" gr:mc="5" gr:emc="2"><group>Buddies</group></item>
+    <item jid="jfalvarez@vesifront.org" subscription="both" name="Juan Felipe Alvarez Saldarriaga" gr:w="1" gr:mc="5"/>
+    <item jid="juan.cortes@phidias.com.co" subscription="both" name="Juan Sebastián Cortés" gr:w="1" gr:mc="5"/>
+    <item jid="marcela@ruedalibre.us" subscription="both" name="Marcela Jaramillo Díaz" gr:w="1" gr:mc="5" gr:emc="1"/>
+    <item jid="support@theprinterdepot.net" subscription="both" name="The Printer Depot Website Support Support" gr:t="B" gr:w="1" gr:mc="5" gr:emc="5"/>
+    <item jid="aleposada@gmail.com" subscription="both" name="alejandro S. Posada" gr:autosub="true" gr:w="1" gr:mc="5" gr:emc="5" gr:profileurl="http://www.google.com/profiles/114946502475111259924"/>
+    <item jid="amauryprieto@gmail.com" subscription="both" name="Amaury Prieto" gr:autosub="true" gr:w="1" gr:mc="5" gr:emc="5"/>
+    <item jid="andmej@gmail.com" subscription="both" name="Andrés Mejía" gr:w="1" gr:mc="5" gr:emc="5"/>
+    <item jid="anthonychaves@gmail.com" subscription="both" name="Anthony Chaves" gr:autosub="true" gr:w="1" gr:mc="5" gr:emc="5"/>
+    <item jid="coneja@gmail.com" subscription="both" name="Pamela" gr:w="1" gr:mc="5" gr:emc="5"/>
+    <item jid="correo.del.llanox@gmail.com" subscription="both" name="Juan Gabriel Gutierrez" gr:w="1" gr:mc="5" gr:emc="2" gr:profileurl="http://www.google.com/profiles/correo.del.llanox"/>
+    <item jid="deliciasgalo@gmail.com" subscription="both" name="Carolina Gaviria" gr:autosub="true" gr:w="1" gr:mc="5" gr:emc="5"/>
+    <item jid="elverb@gmail.com" subscription="both" name="Frank" gr:w="1" gr:mc="5" gr:profileurl="http://www.google.com/profiles/105703889298555303596"/>
+    <item jid="federico.builes@gmail.com" subscription="both" name="Federico Builes" gr:w="1" gr:mc="5" gr:emc="5" gr:profileurl="http://www.google.com/profiles/federico.builes"/>
+    <item jid="froy730@gmail.com" subscription="both" name="Froilan Mauricio Ruiz Echavarria" gr:w="1" gr:mc="5"/>
+    <item jid="gapslondo@gmail.com" subscription="both" name="GaP SuPeLaNo" gr:w="1" gr:mc="5" gr:profileurl="http://www.google.com/profiles/111058270724865641290"/>
+    <item jid="jaime.vallejo@gmail.com" subscription="both" name="Jaime Vallejo" gr:t="B" gr:w="1" gr:mc="5" gr:emc="5"/>
+    <item jid="jardincosmico@gmail.com" subscription="both" gr:w="1" gr:mc="5" gr:profileurl="http://www.google.com/profiles/jardincosmico"/>
+    <item jid="jorge.johnson@gmail.com" subscription="both" name="jorge johnson" gr:w="1" gr:mc="5" gr:emc="4" gr:profileurl="http://www.google.com/profiles/jorge.johnson"/>
+    <item jid="jorge.norena@gmail.com" subscription="both" name="Jorge Noreña" gr:w="1" gr:mc="5" gr:profileurl="http://www.google.com/profiles/107263953271210373672"/><item jid="juliaclemencial@gmail.com" subscription="both" name="Julia Clemencia López" gr:w="1" gr:mc="5" gr:emc="5"/>
+    <item jid="khouly.fumellar@gmail.com" subscription="both" name="Margarita correa" gr:w="1" gr:mc="5"><group>Buddies</group></item>
+    <item jid="lmolinav@gmail.com" subscription="both" name="Luis Molina" gr:w="1" gr:mc="5" gr:emc="1" gr:profileurl="http://www.google.com/profiles/106649285265717446764"/><item jid="luise.valencia@gmail.com" subscription="both" name="Luis Esteban Valencia Muñoz." gr:t="B" gr:w="1" gr:mc="5" gr:emc="2" gr:profileurl="http://www.google.com/profiles/luise.valencia"/>
+    <item jid="m3moore@gmail.com" subscription="none" ask="subscribe" name="Matthew Moore" gr:w="1" gr:mc="5" gr:profileurl="http://www.google.com/profiles/m3moore"/>
+    <item jid="mauricio.solano@gmail.com" subscription="both" name="Mauricio Solano" gr:w="1" gr:mc="5" gr:profileurl="http://www.google.com/profiles/112416384077022558574"/>
+    <item jid="nebiros@gmail.com" subscription="both" name="Juan Felipe Alvarez Saldarriaga" gr:w="1" gr:mc="5" gr:profileurl="http://www.google.com/profiles/nebiros"/>
+    <item jid="ordinaryzelig@gmail.com" subscription="both" gr:w="1" gr:mc="5"/>
+    <item jid="p.nieto.guarin@gmail.com" subscription="both" name="Paola Nieto" gr:t="B" gr:w="1" gr:mc="5" gr:emc="5"/>
+    <item jid="picossio@gmail.com" subscription="both" name="pilar" gr:inv="A" gr:w="1" gr:mc="5" gr:emc="3" gr:profileurl="http://www.google.com/profiles/104777976761278231095"/>
+    <item jid="ranalogia@gmail.com" subscription="none" ask="subscribe" name="Ana Maria Builes" gr:w="1" gr:mc="5"/>
+    <item jid="sebastianarcila@gmail.com" subscription="both" name="Sebastián Arcila" gr:w="1" gr:mc="5" gr:emc="5" gr:profileurl="http://www.google.com/profiles/102965236689941256270"/>
+    <item jid="selfenjoy@gmail.com" subscription="both" name="jhonny castrillón" gr:w="1" gr:mc="5" gr:emc="3"/>
+    <item jid="stibenzon.canas@gmail.com" subscription="both" name="Stibenzon Cañas Sánchez - Ceiba Software House S.A" gr:t="H" gr:w="1" gr:mc="5" gr:emc="5"/>
+    <item jid="ley.hans@googlemail.com" subscription="both" name="Hans Ley" gr:autosub="true" gr:w="1" gr:mc="5" gr:emc="5"/>
+    <item jid="admin@theprinterdepot.net" subscription="none" gr:rejected="true"/>
+    <item jid="dk@structuralartistry.com" subscription="both"/>
+    <item jid="neohomerico@jappix.com" subscription="both" gr:w="0" gr:mc="2"/>
+    <item jid="s.gaviria68@uniandes.edu.co" subscription="none" ask="subscribe" name="Santiago GL" gr:inv="A" gr:w="0" gr:emc="5"/>
+    <item jid="stibenzon.canas@ceiba.com.co" subscription="none" name="Stibenzon Cañas Sánchez - Ceiba Software House S.A" gr:t="B" gr:w="0" gr:emc="5"/>
+    <item jid="ambarra@gmail.com" subscription="none"><group>Buddies</group></item>
+    <item jid="anamariaaristizabal@gmail.com" subscription="none" name="ana maria aristizabal" gr:t="H" gr:w="0" gr:emc="5" gr:profileurl="http://www.google.com/profiles/112254869170373352843"/>
+    <item jid="builes.adolfo@gmail.com" subscription="none" name="Adolfo Builes" gr:w="0" gr:emc="1" gr:profileurl="http://www.google.com/profiles/113313234991631270204"/>
+    <item jid="dana.linton@gmail.com" subscription="both" name="Dana Linton" gr:autosub="true" gr:w="0" gr:emc="4"/>
+    <item jid="gflotero@gmail.com" subscription="both" name="GABRIEL FERNANDO LOTERO ARIAS" gr:w="0" gr:emc="2"/>
+    <item jid="hortizro@gmail.com" subscription="both" gr:autosub="true" gr:w="0" gr:emc="3" gr:profileurl="http://www.google.com/profiles/hortizro"/>
+    <item jid="jacksandlerbloom@gmail.com" subscription="both" name="Jack Bloom" gr:autosub="true" gr:w="0" gr:emc="3" gr:profileurl="http://www.google.com/profiles/116824583238457269268"/>
+    <item jid="liasanchezecheverri@gmail.com" subscription="both"/>
+    <item jid="llanojairo@gmail.com" subscription="both" name="Jairo Perez" gr:w="0" gr:emc="5"/>
+    <item jid="nata6677@gmail.com" subscription="both" name="NATALIA PEREZ" gr:w="0" gr:emc="1"/>
+    <item jid="rauchg@gmail.com" subscription="both" gr:profileurl="http://www.google.com/profiles/rauchg"/>
+    <item jid="reiterweg@gmail.com" subscription="both" gr:t="B" gr:profileurl="http://www.google.com/profiles/110773080757846780135"/>
+    <item jid="sgaviria@gmail.com" subscription="none" ask="subscribe" name="sgaviria@gmail.com" gr:w="0" gr:emc="5" gr:profileurl="http://www.google.com/profiles/113919581567804218032"/>
+    <item jid="sshanti89@gmail.com" subscription="both" name="Shub" gr:autosub="true" gr:w="0" gr:emc="3" gr:profileurl="http://www.google.com/profiles/103454762434135627374"/>
+    <item jid="vainas.sgl@gmail.com" subscription="both" name="Santiago Gaviria-Duarte" gr:t="H" gr:w="0" gr:emc="5"/>
+    <item jid="valencia.luisesteban@gmail.com" subscription="none" gr:rejected="true"/>
+    <item jid="zuluagajorge@gmail.com" subscription="both" name="Jorge Zuluaga" gr:profileurl="http://www.google.com/profiles/102598331811059598192"/>
+</query>
+</iq>
