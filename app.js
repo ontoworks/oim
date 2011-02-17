@@ -1,5 +1,6 @@
 var express = require('express'),
     sys   = require('sys'),
+    fs = require('fs'),
     stylus= require('stylus'),
     io = require('socket.io');
 
