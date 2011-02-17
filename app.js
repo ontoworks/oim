@@ -1,5 +1,6 @@
 var express = require('express'),
     sys   = require('sys'),
+    stylus= require('stylus'),
     io = require('socket.io');
 
 var app = module.exports = express.createServer();
@@ -15,6 +16,13 @@ app.get('/*.css', function(req, res) {
 	var filename= res.req.params[0].split('/')[1];
 	// var css= convert_sass(__dirname+'/views/'+filename + '.css.sass');
 	res.render(filename + '.css.sass', { layout: false });
+    } else if (url[1] == 'styl') {
+	var filename= res.req.params[0].split('/')[1];
+	var str= fs.readFileSync(__dirname + '/views/'+filename+'.styl', 'utf8');
+	stylus.render(str, { filename: filename+'.styl' }, function(err, css){
+	    if (err) throw err;
+	    res.send(css);
+	});
     } else {
 	res.sendfile(__dirname+'/public/stylesheets/'+req.params[0]+'.css');
     }
