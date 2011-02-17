@@ -1,0 +1,105 @@
+#canvas
+  #left
+    .status-wrapper
+      span.left
+      #status-box
+        .status-icon.busy
+        .my-info
+          p.name la cuturubrita loca
+          p.message pam pararam
+          a.status(href:"#")  
+            span.label available
+        .photo
+          img(src:'/images/photo.png')
+      span.right
+    .accounts-wrapper
+      #search-contact-box
+        span.left
+        span.center
+          input(type:'text')
+        span.right
+      #my-accounts-box
+        ul
+          li
+            a.account-icon.gtalk(href:"#") 
+          li
+            a.account-icon.facebook(href:"#")
+          li
+            a.account-icon.msn(href:"#")
+        a#add-contact(href:"#")  
+          span.label add account
+      #buddy-list-box
+        .sections-wrapper
+          - each net in ['Chat', 'Gtalk', 'facebook']
+            .buddy-list-section
+              a.header(href:"#")
+                span.header-icon(class: net.toLowerCase())
+                span.header-label= net
+                span.header-expand
+              ul.buddy-list
+                - for (var i=0; i < 10; i++)
+                  - bg = (i%2==0) ? 'even' : 'odd'
+                  li.buddy-item(class: bg)
+                    span.status-icon.busy
+                    .buddy-info
+                      p.name pumiprinsipis
+                      p.message el de las garritas
+                    img.buddy-photo(src:'/images/buddies/'+((i%2==0) ? 1 : 2)+'.jpg')
+      .accounts-footer
+  #right
+    #chat-sessions
+      .chat-session
+        .span-left
+        .session-header
+          img.photo(src:'/images/photo-2.png')
+          .my-info
+            span.status-icon
+            .info
+              p.name mascot one and mascot three
+              p.message miauu miauuu miauuuu
+            span.network-icon.gtalk
+        .span-right
+        .chat-buffer-wrapper
+          .chat-buffer 
+            .message.odd
+              img.thumb(src:'/images/buddies/1.jpg') 
+              .message-background
+                p.single ya mandé un mensaje desde Node (JS) a MSN
+                p.time 12:34
+            .message.even
+              img.thumb(src:'/images/buddies/8.jpg') 
+              .message-background
+                p.single ya mandé un mensaje desde Node (JS) a MSN
+                p.time 12:34
+            .message.odd
+              img.thumb(src:'/images/buddies/1.jpg') 
+              .multi.message-background
+                .multi-item
+                  p.single pero es que me empelicule mas de la cuenta
+                  p.time 12:36
+                .multi-item
+                  p.single pero es que me empeliculé más de la cuenta pero es que me empeliculé más de la cuenta pero es que me empeliculé más de la cuenta
+                  p.time 12:36 
+                .multi-item
+                  p.single estamos listos mi cuturubrita loca ahora si vamos a tomarnos el mundo
+                  p.time 12:36
+            .message.even
+              img.thumb(src:'/images/buddies/8.jpg') 
+              .multi.message-background
+                .multi-item
+                  p.single pero es que me empelicule mas de la cuenta
+                  p.time 12:36
+                .multi-item
+                  p.single pero es que me empeliculé más de la cuenta pero es que me empeliculé más de la cuenta pero es que me empeliculé más de la cuenta
+                  p.time 12:36 
+                .multi-item
+                  p.single estamos listos mi cuturubrita loca ahora si vamos a tomarnos el mundo
+                  p.time 12:36
+          .send-message
+            p.label typing...
+            input(type:'text')
+ 
+                  
+
+
+

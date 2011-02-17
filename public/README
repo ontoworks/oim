@@ -1,0 +1,10 @@
+README
+ aplicación de Node:
+$ cd Projects/chatty
+$ node app.js
+
+Bajar la aplicación:
+ctrl+C
+
+Ir a la aplicación en el browser:
+http://localhost:8080

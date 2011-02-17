@@ -1,0 +1,246 @@
+html, body {
+    border: 0 none;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+body {
+    background: #EEEEEE;
+    font-family: "Lucida Grande",Arial,Helvetica,Verdana,sans-serif
+}
+
+li {
+  display: block;
+}
+
+.layout {
+    display: none;
+}
+
+#root {
+  width: 998px;
+  margin: 0 auto;
+  background: white;
+  height: 1000px;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+
+#connection-manager {
+    border: 1px solid #AAAAAA;
+    clear: left;
+    float: left;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 565px;
+}
+
+#connection-manager .connection {
+    background-color: #EEEEEE;
+    float: left;
+    margin-right: 15px;
+    padding: 5px;
+    width: 450px;
+}
+
+#connection-manager .connection .status {
+    width: 9px;
+    height: 9px;
+    float: left;
+    margin: 7px 5px 0;
+}
+
+#connection-manager .connection .status.online {
+    background: url(/images/icono-online.png) no-repeat;
+}
+
+#connection-manager .connection .status.offline,
+#connection-manager .connection .status.invisible {
+    background: url(/images/icono-offline.png) no-repeat;
+}
+
+#connection-manager .connection .status.busy {
+    width: 13px;
+    height: 14px;
+    margin: 5px 5px 0;
+    background: url(/images/icono-busy.png) no-repeat;
+}
+
+#connection-manager select {
+    margin-top: 5px;
+}
+
+#login {
+    float: left;
+    padding: 10px;
+    border: 1px solid #AAA;
+    margin-bottom: 10px;
+    
+}
+
+#login a, #login p, #login input {
+    float: left;
+    margin-right: 10px;
+}
+
+#login a#connect {
+    margin-left: 10px;
+}
+
+#sessions-nav {
+    float: left;
+    margin-bottom: 10px;
+    width: 652px;
+}
+
+#sessions-nav li {
+    float: left;
+    margin-right: 5px;
+}
+
+#sessions-nav li a {
+    padding: 5px;
+    font-size: 11px;
+    border: 1px solid #AAA;
+    text-align: center;
+}
+
+#sessions-nav li.open a {
+    background-color: #AAA;
+    color: white;
+}
+
+#contacts-list-wrapper {
+    clear: left;
+    float: left;
+    width: 326px;
+    margin-right: 10px;
+}
+
+#contacts-list {
+    border: 1px solid #AAA;
+}
+
+#sessions-wrapper {
+    width: 662px;
+    float: left;
+}
+
+#sessions {
+}
+
+#sessions-list li {
+    float: left;
+    margin-right: 10px;
+}
+
+#sessions-list li a {
+    padding: 10px;
+    float: left;
+    border: 1px solid #AAA;
+}
+
+#sessions-windows {
+    clear: left;
+    float: left;
+    border: 1px solid #AAA;
+    padding: 5px;
+    width: 652px;
+}
+
+.messages {
+    float: left;
+    width: 100%;
+}
+
+.chat-message {
+    border: 1px solid #AAA;
+    padding: 5px;
+    margin-bottom: 10px;
+    clear: both;
+    float: left;
+}
+
+.chat-message.to {
+    clear: both;
+    float: right;
+}
+
+.chat-message .photo {
+    width: 50px;
+    height: 50px;
+    border: 1px dotted #AAA;
+}
+
+.chat-message .photo,
+.chat-message .message-content,
+.chat-message .datetime {
+    float: left;
+    margin-right: 10px;
+}
+
+.chat-message p {
+    font-size: 12px;
+}
+
+.chat-message .contact-name {
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.session-window.chat .send-message {
+    float: left;
+    width: 100%;
+}
+
+.session-window.chat .send-message textarea, 
+.session-window.chat .send-message a {
+    float: left;
+}
+
+.session-window.chat .send-message textarea {
+    width: 550px;
+}
+
+.session-window.chat .send-message a {
+    width: 100px;
+    text-align: center;
+    padding: 12px 0;
+    background-color: #EEE;
+}
+
+#contacts-list .contact-item {
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid #AAA;
+    background-color: #EEE;
+}
+
+#contacts-list .contact-item .status {
+    width: 9px;
+    height: 9px;
+    float: left;
+    margin: 7px 5px 0;
+}
+
+#contacts-list .contacts-online .contact-item .status {
+    background: url(/images/icono-online.png) no-repeat;
+}
+
+#contacts-list .contacts-offline .contact-item .status {
+    background: url(/images/icono-offline.png) no-repeat;
+}
+
+#contacts-list .contacts-busy .contact-item .status {
+    width: 13px;
+    height: 14px;
+    margin: 5px 5px 0;
+    background: url(/images/icono-busy.png) no-repeat;
+}
+

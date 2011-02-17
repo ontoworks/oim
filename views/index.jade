@@ -1,0 +1,54 @@
+#root
+  .chat
+    #login
+      p Login:
+      input#jid(type: 'text')
+      p Password:
+      input#pass(type:'password')
+      a#connect(href:'#') Conectar
+    #connection-manager(style:'display:none;')
+      .connection
+        p.status.busy
+        p.label carita linda
+      select
+        option(value:'online') Available
+        option(value:'busy') Busy
+        option(value:'invisible') Invisible
+        option(value:'offline') Offline
+    #contacts-list-wrapper
+      #contacts-list
+        p.title Contacts
+        .contacts-online
+          p.label - Online
+          ul.list
+            li.contact-item.layout
+              a(href: '#') 
+                span.status
+                span.label carita linda
+        .contacts-busy
+          p.label + Busy
+          ul.list
+        .contacts-offline
+          p.label + Offline
+          ul.list
+    #sessions-wrapper
+      #sessions
+        #sessions-nav
+          ul
+            li.session.layout
+              a(href:'') carita linda
+        #sessions-windows
+          #session-1.session-window.chat.layout
+            .messages
+              .chat-message.layout
+                .photo
+                .message-content
+                  p.contact-name(style:"display:none;")
+                    span.label Buddy 
+                    span says:
+                  p.text Este es el fucking message
+                .datetime
+            .send-message
+              textarea
+              a(href:'#') Ok
+          #session-2

@@ -1,0 +1,51 @@
+<body xmlns='http://jabber.org/protocol/httpbind'>
+  <presence xmlns='jabber:client' from='santiago@neohomerico.local' to='admin@neohomerico.local/37845773281294876079478912' type='subscribe'/>
+</body>
+
+<body xmlns='http://jabber.org/protocol/httpbind'>
+  <iq xmlns='jabber:client' from='santiago@neohomerico.local/neohomerico' to='admin@neohomerico.local/3706691844129552109722702' type='get' id='iChat_6F6DD9AC'>
+    <query xmlns='http://jabber.org/protocol/disco#info'/>
+  </iq>
+  <iq xmlns='jabber:client' from='admin@neohomerico.local' to='admin@neohomerico.local/3706691844129552109722702' type='result'>
+    <query xmlns='jabber:iq:roster'>
+      <item subscription='from' jid='santiago@neohomerico.local'/>
+    </query>
+  </iq>
+  <presence xmlns='jabber:client' from='admin@neohomerico.local/2785917750129552053662911' to='admin@neohomerico.local/3706691844129552109722702'>
+    <delay xmlns='urn:xmpp:delay' from='admin@neohomerico.local/2785917750129552053662911' stamp='2011-01-15T00:40:54Z'></delay>
+    <x xmlns='jabber:x:delay' stamp='20110115T00:40:54'/>
+  </presence>
+  <presence xmlns='jabber:client' from='admin@neohomerico.local/2854750203129552099791697' to='admin@neohomerico.local/3706691844129552109722702'>
+    <delay xmlns='urn:xmpp:delay' from='admin@neohomerico.local/2854750203129552099791697' stamp='2011-01-15T00:41:40Z'></delay>
+    <x xmlns='jabber:x:delay' stamp='20110115T00:41:40'/>
+  </presence>
+  <presence xmlns='jabber:client' from='admin@neohomerico.local/3778589347129552083641550' to='admin@neohomerico.local/3706691844129552109722702'>
+    <delay xmlns='urn:xmpp:delay' from='admin@neohomerico.local/3778589347129552083641550' stamp='2011-01-15T00:41:24Z'></delay>
+    <x xmlns='jabber:x:delay' stamp='20110115T00:41:24'/>
+  </presence>
+  <presence xmlns='jabber:client' from='admin@neohomerico.local/3706691844129552109722702' to='admin@neohomerico.local/3706691844129552109722702'/>
+</body>
+
+<body xmlns="http://jabber.org/protocol/httpbind">
+  <message xmlns="jabber:client" from="santiago@neohomerico.local/neohomerico" to="admin@neohomerico.local" type="chat" id="iChat_2EB141F2">
+    <body>oe</body>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+      <body style="background-color:#ebebeb;color:#000000;">
+        <span style="font-family: 'Helvetica';font-size: 12px;">oe</span>
+      </body>
+    </html>
+    <x xmlns="jabber:x:event"><composing/></x>
+    <active xmlns="http://jabber.org/protocol/chatstates"/>
+  </message>
+</body>
+
+<body xmlns='http://jabber.org/protocol/httpbind'>
+  <presence xmlns='jabber:client' from='santiago@neohomerico.local/neohomerico' to='admin@neohomerico.local/1325688021295562845273877'>
+    <show>xa</show>
+    <priority>0</priority>
+    <c xmlns='http://jabber.org/protocol/caps' node='http://www.apple.com/ichat/caps' ver='745' ext='ice recauth rdserver maudio audio rdclient mvideo auxvideo rdmuxing avcap avavail video'/>
+    <x xmlns='vcard-temp:x:update'>
+      <photo/>
+    </x>
+  </presence>
+</body>
