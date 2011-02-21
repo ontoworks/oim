@@ -1,11 +1,12 @@
 *
   margin: 0
   padding: 0
-  font-family: helvetica
+
 a
   text-decoration: none
 
 #canvas
+  font-family: "Lucida Grande",Arial,Helvetica,Verdana,sans-serif
   #left
     height: 650px
     width: 290px
@@ -61,7 +62,6 @@ a
               font-size: 11px
               float: left
               padding-left: 10px
-              padding-top: 2px
         .photo
           height: 40px
           width: 40px
@@ -127,19 +127,6 @@ a
             background: url(/images/sprite-1.png) no-repeat -240px -45px  
           a.account-icon.msn
             background: url(/images/sprite-1.png) no-repeat -216px -45px
-      a#add-contact 
-        height: 11px
-        width: 79px
-        background: url(/images/sprite-1.png) no-repeat -165px -63px
-        float: left
-        margin-top: 5px
-        margin-left: 6px  
-        span.label
-          color: #FFFFFF
-          font-size: 10px
-          float: left
-          padding-left: 16px
-          padding-top: 1px
     #buddy-list-box
       height: 510px
       width: 252px
@@ -193,11 +180,7 @@ a
           ul.buddy-list
             width: 100%
             float: left
-            li.buddy-item.odd
-              background-color: #FFFFFF
-            li.buddy-item.even
-              background-color: #EEEEEE
-            li.buddy-item
+            .buddy-item
               height: 30px
               width: 100%
               display: block
@@ -207,19 +190,17 @@ a
                 float: left
                 margin-top: 9px
                 margin-left: 5px
-              span.status-icon.available
-                background: url(/images/sprite-1.png) no-repeat -84px -26px
-              span.status-icon.idle
-                background: url(/images/sprite-1.png) no-repeat -98px -26px
-              span.status-icon.busy
-                background: url(/images/sprite-1.png) no-repeat -110px -26px
+              &.odd
+                background-color: #FFFFFF
+              &.even
+                background-color: #EEEEEE      
               .buddy-info
                 height: 30px
                 float: left
                 margin-left: 10px
                 p.name
                   font-size: 11px
-                  margin-top: 3px
+                  margin-top: 2px
                   width: 185px
                 p.name.alone
                   font-size: 11px
@@ -228,7 +209,6 @@ a
                 p.message
                   font-size: 10px
                   color: #AAAAAA
-                  margin-top: 2px
                   width: 185px
               span.network-icon
                 height: 16px
@@ -243,11 +223,20 @@ a
                 float: right
                 margin-top: 5px
                 margin-right: 7px
-            li.buddy-item.offline
-              opacity: 0.5
-              p.name
-                margin-left: 15px
-                margin-top: 9px
+            &.available
+              .buddy-item .status-icon
+                background: url(/images/sprite-1.png) no-repeat -84px -26px
+            &.busy
+              .buddy-item .status-icon
+                background: url(/images/sprite-1.png) no-repeat -110px -26px
+            &.idle
+              .buddy-item .status-icon
+                background: url(/images/sprite-1.png) no-repeat -98px -26px
+            &.offline
+              .buddy-item
+                opacity: 0.5
+                p.name
+                  margin-top: 9px
     .accounts-footer  
       height: 20px
       width: 252px
@@ -348,7 +337,7 @@ a
               margin-left: 5px
             p
               font-size: 11px
-              padding: 4px
+              padding: 3px
               float: left
             p.single
               float: left

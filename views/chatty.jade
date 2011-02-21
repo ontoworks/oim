@@ -26,8 +26,6 @@
             a.account-icon.facebook(href:"#")
           li
             a.account-icon.msn(href:"#")
-        a#add-contact(href:"#")  
-          span.label add account
       #buddy-list-box
         .sections-wrapper
           - each net in ['Chat', 'Gtalk', 'facebook']
@@ -36,19 +34,43 @@
                 span.header-icon(class: net.toLowerCase())
                 span.header-label= net
                 span.header-expand
-              ul.buddy-list
-                - for (var i=0; i < 10; i++)
+              ul.buddy-list.available
+                - for (var i=0; i < 4; i++)
                   - bg = (i%2==0) ? 'even' : 'odd'
                   li.buddy-item(class: bg)
-                    span.status-icon.busy
+                    span.status-icon
                     .buddy-info
                       p.name pumiprincipis
                       p.message el de las garritas
                     img.buddy-photo(src:'/images/buddies/'+((i%2==0) ? 1 : 2)+'.jpg')
-                li.buddy-item.offline
-                  .buddy-info
-                    p.name pumiprincipis
-                  img.buddy-photo(src:'/images/buddies/1.jpg')
+              ul.buddy-list.busy
+                - for (var i=0; i < 4; i++)
+                  - bg = (i%2==0) ? 'even' : 'odd'
+                  li.buddy-item(class: bg)
+                    span.status-icon
+                    .buddy-info
+                      p.name pumiprincipis
+                      p.message el de las garritas
+                    img.buddy-photo(src:'/images/buddies/'+((i%2==0) ? 1 : 2)+'.jpg')
+
+              ul.buddy-list.idle
+                - for (var i=0; i < 4; i++)
+                  - bg = (i%2==0) ? 'even' : 'odd'
+                  li.buddy-item(class: bg)
+                    span.status-icon
+                    .buddy-info
+                      p.name pumiprincipis
+                      p.message el de las garritas
+                    img.buddy-photo(src:'/images/buddies/'+((i%2==0) ? 1 : 2)+'.jpg')
+              ul.buddy-list.offline
+                - for (var i=0; i < 4; i++)
+                  - bg = (i%2==0) ? 'even' : 'odd'
+                  li.buddy-item(class: bg)
+                    span.status-icon
+                    .buddy-info
+                      p.name pumiprincipis
+                      p.message &nbsp;
+                    img.buddy-photo(src:'/images/buddies/'+((i%2==0) ? 1 : 2)+'.jpg')
       .accounts-footer
   #right
     #chat-sessions
