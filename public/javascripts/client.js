@@ -12,13 +12,53 @@ $.widget('ui.buddy_list', {
     update_buddy: function(buddy) {
 	var $el= this.element;
 	var self= this;
+	var status= "online";
 	var $buddy_item= $el.find(".buddy-item[id="+JID.bare(buddy.presence.from)+"]");
-	console.log($buddy_item);
+
+	$buddy_item.removeClass("offline online idle away").addClass(status);
 	// state update should not work like this
-	$buddy_item.removeClass("offline online idle away").addClass("online");
-	$buddy_item.find(".status-icon").removeClass().addClass('status-icon online');
+	$buddy_item.find(".status-icon").removeClass().addClass('status-icon '+status);
 	$buddy_item.find(".buddy-info .message").text(buddy.presence.message);
-	$el.find(".buddy-list-section."+buddy.service+" .buddy-list.online").append($buddy_item);
+	$buddy_item.find(".message").trunc(35);
+
+	// sort buddies alphabetically
+	var contacts_list= [];
+	$el.find(".buddy-list-section."+buddy.service+" .buddy-list."+status+" .buddy-item").not(".layout").each(function() {
+	    var name= $(this).find(".name").text();
+	    contacts_list.push(name);
+	});
+
+	contacts_list.sort(function(a,b) {
+	    var al=a.toLowerCase(),bl=b.toLowerCase();
+	    return al==bl?(a==b?0:a<b?-1:1):al<bl?-1:1;
+	});
+
+	// console.log(contacts_list.length);
+	// $contact_item.find(".status").addClass(status);
+	var next;
+	$(contacts_list).each(function(i,v) {
+	    if ($buddy_item.find(".name").text().toLowerCase() <= v.toLowerCase()) {		
+		next= v;
+		return false;
+	    }
+	});
+	if (next) {
+	    $el.find(".buddy-list-section."+buddy.service+" .buddy-list."+status+" .buddy-item:contains('"+next+"')").before($buddy_item);
+	} else {
+	    $el.find(".buddy-list-section."+buddy.service+" .buddy-list."+status).append($buddy_item);
+	}
+
+	// update evens and odds for online buddies
+	// i think this could be slow if very long blist
+	$el.find(".buddy-list-section."+buddy.service+" .buddy-list:not(.offline) .buddy-item:even")
+	    .removeClass("even odd").addClass("even");
+	$el.find(".buddy-list-section."+buddy.service+" .buddy-list:not(.offline) .buddy-item:odd")
+	    .removeClass("even odd").addClass("odd");
+	// update evens and odds for offline buddies
+	$el.find(".buddy-list-section."+buddy.service+" .buddy-list.offline .buddy-item:even")
+	    .removeClass("even odd").addClass("even");
+	$el.find(".buddy-list-section."+buddy.service+" .buddy-list.offline .buddy-item:odd")
+	    .removeClass("even odd").addClass("odd");
     },
     /*
       Renders buddy list
@@ -35,7 +75,7 @@ $.widget('ui.buddy_list', {
 	    buddy_item.attr("id", buddy_jid);
 	    buddy_item.addClass((function(parity) { return (parity%2==0) ? 'even' : 'odd'})(i));
 	    buddy_item.find(".name").text(roster.roster.contacts[buddy_jid].name);
-	    buddy_item.find(".name").trunc(25);
+	    buddy_item.find(".name").trunc(40);
 	    $el.find(".buddy-list-section."+service+" .buddy-list.offline").append(buddy_item.show());
 	}
     }

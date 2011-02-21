@@ -3,7 +3,8 @@ var express = require('express'),
     io = require('socket.io'),
     fs = require('fs'),
     stylus= require('stylus'),
-    net = require('net');
+    net = require('net'),
+    ConnectionManager= require('./lib/xmpp_proxy').ConnectionManager;
 
 var app = module.exports = express.createServer();
 app.set('view engine', 'jade');
@@ -104,6 +105,7 @@ io.on('connection', function(client) {
 });
 
 // Connect to XMPP Connection Manager
+new ConnectionManager();
 var cm= net.createConnection(8124, 'localhost');
 cm.on('connect', function(stream) {
     cm.setEncoding('utf8');
@@ -129,10 +131,29 @@ cm.on('data', function(stream) {
     }
     if (messages) {
 	messages.forEach(function(message) {
+	    // console.log(message);
 	    if (message.session) {
-		sessions[message.session.jid]= message.session.sid;
+		var session= message.session;
+		var bare_jid= session.jid.user+"@"+session.jid.domain;
+		if (!sessions[bare_jid]) sessions[bare_jid]= {};
+		sessions[bare_jid][session.jid.resource]= message.sid;
+		console.log(sessions);
 	    } else {
-		io.clients[message.sid].send(JSON.stringify(message));
+		var bare_jid= message.to.split("/")[0];
+		var resource= message.to.split("/")[1];
+
+		// We don't want to lose a message if it's going to a closed session
+		// If that happens we try to redirect to another active session, just any
+		var sid= (function() {
+		    var current_sid= sessions[bare_jid][resource];
+		    if(io.clients[current_sid]) return sessions[bare_jid][resource];
+		    sessions[bare_jid][resource]= undefined;
+		    for(res in sessions[bare_jid]) {
+			return sessions[bare_jid][res];
+		    }
+		    return false;
+		})();
+		if (sid) io.clients[sid].send(JSON.stringify(message));
 	    }
 	});
     } else {
