@@ -61,10 +61,10 @@
                       p.name pumiprincipis
                       p.message el de las garritas
                     img.buddy-photo(src:'/images/buddies/'+((i%2==0) ? 1 : 2)+'.jpg')
-              ul.buddy-list.idle.alone
+              ul.buddy-list.idle
                 - for (var i=0; i < 4; i++)
                   - bg = (i%2==0) ? 'even' : 'odd'
-                  li.buddy-item(class: bg)
+                  li.buddy-item.alone(class: bg)
                     span.status-icon
                     .buddy-info
                       p.name pumiprincipis
