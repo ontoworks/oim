@@ -149,3 +149,157 @@
     <item jid="zuluagajorge@gmail.com" subscription="both" name="Jorge Zuluaga" gr:profileurl="http://www.google.com/profiles/102598331811059598192"/>
 </query>
 </iq>
+
+
+
+<presence from="sgaviria@gmail.com/gmail.2D27DF9B" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>24</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 camera-v1 video-v1 voice-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><x xmlns="vcard-temp:x:update"><photo>600f22166f62f85440fa7e1b664b8ffd4e8d88f1</photo></x></presence>
+[12:54:53] presence
+Data from CM
+<presence from="sgaviria@gmail.com/neohomeric53A28628" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>0</priority>
+<c node="http://www.apple.com/ichat/caps" ver="745" ext="ice recauth rdserver maudio audio rdclient mvideo auxvideo rdmuxing avcap avavail video" xmlns="http://jabber.org/protocol/caps"/><x xmlns="vcard-temp:x:update"><photo>600f22166f62f85440fa7e1b664b8ffd4e8d88f1</photo></x></presence>
+[12:54:53] presence
+<presence from="liasanchezecheverri@gmail.com/gmail.2C7CC55E" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><show>away</show><priority>0</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status>Possibly away</status><x xmlns="vcard-temp:x:update"><photo>31153a126c876917bdf023098d783f6b7ee4002a</photo></x></presence>
+[12:54:53] presence
+<presence from="dk@structuralartistry.com/gmail.2DBD2CC8" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><show>away</show><priority>0</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><x xmlns="vcard-temp:x:update"><photo/></x></presence>
+[12:54:53] presence
+Data from CM
+<presence from="aleposada@gmail.com/alejandro 328E1E5E" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><show>xa</show>
+<priority>0</priority>
+<c node="http://www.apple.com/ichat/caps" ver="745" ext="ice recauth rdserver maudio audio rdclient mvideo auxvideo rdmuxing avcap avavail video" xmlns="http://jabber.org/protocol/caps"/><x xmlns="vcard-temp:x:update"><photo>757eb5ce4c722f8cbb7d0f2f7a46a03d2910129e</photo></x></presence>
+[12:54:53] presence
+Data from CM
+<presence from="sirenita@ontoworks.com/marcelilla0FCBB274" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><show>xa</show>
+<priority>0</priority>
+<c node="http://www.apple.com/ichat/caps" ver="745" ext="ice recauth rdserver maudio audio rdclient mvideo auxvideo rdmuxing avcap avavail video" xmlns="http://jabber.org/protocol/caps"/><x xmlns="vcard-temp:x:update"><photo>c895b1aa9942032217e1690a0eb06c3158c02c19</photo></x></presence>
+[12:54:53] presence
+<presence from="nebiros@gmail.com/Talk.v10419C1D9DD" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><show>away</show><priority>24</priority><c node="http://www.google.com/xmpp/client/caps" ver="1.0.0.104" ext="share-v1 voice-v1" xmlns="http://jabber.org/protocol/caps"/><x stamp="20110221T17:38:40" xmlns="jabber:x:delay"/><status>Software sucks, 80% of projects fail, and most developers are unhappy individuals.</status><x xmlns="vcard-temp:x:update"><photo>60048376f0907bd7bba4eca9d7b51f4c6911fdad</photo></x></presence>
+[12:54:53] presence
+<presence id="Q4BgE-70517" from="froy730@gmail.com/c13zdhlX5Q3EF21424" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><status/><show>dnd</show><x xmlns="vcard-temp:x:update"><photo>f587913e8e6428a8da95233092a2357da97f5fb9</photo></x></presence>
+[12:54:53] presence
+<presence from="jardincosmico@gmail.com/gmail.2D1C2B2C" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>24</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><x xmlns="vcard-temp:x:update"><photo>f1ea77ab794875df44fc2005808ede006de25926</photo></x></presence>
+[12:54:53] presence
+<presence from="jorge.johnson@gmail.com/gmail.2DCAF7F2" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>24</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status>¿ quieres algo ? 
+¡ has que pase !</status><x xmlns="vcard-temp:x:update"><photo>c1f37467a3bddc3f003fa02d79c813594aae9b45</photo></x></presence>
+[12:54:53] presence
+Data from CM
+<presence from="sebastianarcila@gmail.com/Sebastian EB79AF57" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><show>xa</show>
+<priority>0</priority>
+<c node="http://www.apple.com/ichat/caps" ver="745" ext="ice recauth rdserver maudio audio rdclient mvideo auxvideo rdmuxing avcap avavail video" xmlns="http://jabber.org/protocol/caps"/><x xmlns="vcard-temp:x:update"><photo>f4a7c3c1da41e5146dd6f65f1b5377f289c43dfc</photo></x></presence>
+[12:54:54] presence
+<presence from="correo.del.llanox@gmail.com/gmail.2CDB9649" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>24</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><show>dnd</show><x xmlns="vcard-temp:x:update"><photo>8144db38b0313fa806b7fde2c8ec71778612be79</photo></x></presence>
+[12:54:54] presence
+<presence from="gapslondo@gmail.com/gmail.31ACE83C" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><show>away</show><priority>0</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><x xmlns="vcard-temp:x:update"><photo>f7e29fb806f858ae2b3aaaeecb8eafd21ee0db61</photo></x></presence>
+[12:54:54] presence
+<presence from="lmolinav@gmail.com/AdiumA8178CD1" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><c node="http://pidgin.im/" hash="sha-1" ver="VUFD6HcFmUT2NxJkBGCiKlZnS3M=" xmlns="http://jabber.org/protocol/caps"/><x xmlns="vcard-temp:x:update"><photo>9b37650a8d5a08db9213ada7b6ddc34cca00fcce</photo></x></presence>
+[12:54:54] presence
+<presence from="camilo.aguilar@gmail.com/AdiumB11F76E8" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><query seconds="208340" xmlns="jabber:iq:last"/><c node="http://pidgin.im/" hash="sha-1" ver="VUFD6HcFmUT2NxJkBGCiKlZnS3M=" xmlns="http://jabber.org/protocol/caps"/><x xmlns="vcard-temp:x:update"><photo>db86cfb8b4a1061a13e613f5829b9b38539462ae</photo></x></presence>
+[12:54:54] presence
+<presence from="elverb@gmail.com/gmail.2D241036" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><show>away</show><priority>0</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><x xmlns="vcard-temp:x:update"><photo>d40cd827b4d61c03c4658a11fce5300ec02a43bc</photo></x></presence>
+[12:54:54] presence
+<presence from="camilo.aguilar@gmail.com/Adium1DF99E86" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><c node="http://pidgin.im/" hash="sha-1" ver="VUFD6HcFmUT2NxJkBGCiKlZnS3M=" xmlns="http://jabber.org/protocol/caps"/><x xmlns="vcard-temp:x:update"><photo>db86cfb8b4a1061a13e613f5829b9b38539462ae</photo></x></presence>
+[12:54:54] presence
+<presence from="hrhlizardqueen@gmail.com/gmail.367EF382" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><show>away</show><priority>0</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><x xmlns="vcard-temp:x:update"><photo>3437eb6e7aa5ec52429fe0ae1b5705fa0dd08895</photo></x></presence>
+[12:54:54] presence
+<presence from="picossio@gmail.com/gmail.2D1784EA" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><show>away</show><priority>0</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><x xmlns="vcard-temp:x:update"><photo>35bd2c7e942ed7f74eaf5fdcdfecc27fbb636f43</photo></x></presence>
+[12:54:54] presence
+<presence from="rauchg@gmail.com/gmail.2DF1BF6E" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>24</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 camera-v1 video-v1 voice-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status>away</status><show>dnd</show><x xmlns="vcard-temp:x:update"><photo>f57f6f60acf4e9c3c5cf40118757cbda90e497b4</photo></x></presence>
+[12:54:54] presence
+<presence from="jorge.norena@gmail.com/gmail.2D4C6F2A" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>24</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><x xmlns="vcard-temp:x:update"><photo>fa0fb82388181809d570fa00f56e70733aec92b6</photo></x></presence>
+[12:54:54] presence
+Data from CM
+<presence from="zuluagajorge@gmail.com/gmail.2D291600" to="sgaviria@gmail.com/EE6CB66B" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><show>away</show><priority>0</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status>&quot;prefiero los errores del entusiasmo que la indiferencia de la sabiduría&quot;, anatole france</status><x xmlns="vcard-temp:x:update"><photo>912264edcf1c4e15ec5f3e2e89ba97678a97d54c</photo></x></presence>
+[12:54:54] presence
+[12:54:54] iq
+[12:54:54] iq
+Data from CM
+[12:54:55] iq
+<presence from="correo.del.llanox@gmail.com/gmail.2CDB9649" to="sgaviria@gmail.com" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>24</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><show>dnd</show><x xmlns="vcard-temp:x:update"><photo>39823aaa233223d8543f263839836ab7a8b66bf2</photo></x></presence>
+[12:54:55] presence
+Data from CM
+<presence from="correo.del.llanox@gmail.com/gmail.2CDB9649" to="sgaviria@gmail.com" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>24</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><show>dnd</show><x xmlns="vcard-temp:x:update"><photo>8144db38b0313fa806b7fde2c8ec71778612be79</photo></x></presence>
+[12:54:55] presence
+Data from CM
+^Cneohomerico:app santiago$ 
+
+<presence from="sgaviria@gmail.com/5AA034D5" to="sgaviria@gmail.com" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><x xmlns="vcard-temp:x:update"><photo>600f22166f62f85440fa7e1b664b8ffd4e8d88f1</photo></x></presence>
+{"presence":{"from":"sgaviria@gmail.com/5AA034D5","status":"available","message":""},"to":"sgaviria@gmail.com/9612B4DB","sid":"17229108582250774","service":"gtalk"}
+[14:35:33] presence
+<presence from="sgaviria@gmail.com/gmail.2D27DF9B" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><show>away</show><priority>0</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 camera-v1 video-v1 voice-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><x xmlns="vcard-temp:x:update"><photo>600f22166f62f85440fa7e1b664b8ffd4e8d88f1</photo></x></presence>
+{"presence":{"from":"sgaviria@gmail.com/gmail.2D27DF9B","status":"idle","message":""},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+Data from CM
+<presence from="sgaviria@gmail.com/9612B4DB" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><x xmlns="vcard-temp:x:update"><photo>600f22166f62f85440fa7e1b664b8ffd4e8d88f1</photo></x></presence>
+{"presence":{"from":"sgaviria@gmail.com/9612B4DB","status":"available","message":""},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+<presence from="sgaviria@gmail.com/neohomeric53A28628" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>0</priority>
+<c node="http://www.apple.com/ichat/caps" ver="745" ext="ice recauth rdserver maudio audio rdclient mvideo auxvideo rdmuxing avcap avavail video" xmlns="http://jabber.org/protocol/caps"/><x xmlns="vcard-temp:x:update"><photo>600f22166f62f85440fa7e1b664b8ffd4e8d88f1</photo></x></presence>
+{"presence":{"from":"sgaviria@gmail.com/neohomeric53A28628","status":"available","message":""},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+<presence from="liasanchezecheverri@gmail.com/gmail.2C7CC55E" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>24</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status>Possibly away</status><x xmlns="vcard-temp:x:update"><photo>31153a126c876917bdf023098d783f6b7ee4002a</photo></x></presence>
+{"presence":{"from":"liasanchezecheverri@gmail.com/gmail.2C7CC55E","status":"available","message":"Possibly away"},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+<presence from="liasanchezecheverri@gmail.com/android5a73e01e2212" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>24</priority><caps:c node="http://www.android.com/gtalk/client/caps" ext="pmuc-v1" ver="1.1" xmlns:caps="http://jabber.org/protocol/caps"/><show>away</show><status>Possibly away</status><x xmlns="vcard-temp:x:update"><photo>31153a126c876917bdf023098d783f6b7ee4002a</photo></x></presence>
+{"presence":{"from":"liasanchezecheverri@gmail.com/android5a73e01e2212","status":"idle","message":"Possibly away"},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+<presence from="dk@structuralartistry.com/gmail.2DBD2CC8" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>24</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><x xmlns="vcard-temp:x:update"><photo/></x></presence>
+{"presence":{"from":"dk@structuralartistry.com/gmail.2DBD2CC8","status":"available","message":""},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+Data from CM
+<presence from="sirenita@ontoworks.com/marcelilla0FCBB274" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><show>xa</show>
+<priority>0</priority>
+<c node="http://www.apple.com/ichat/caps" ver="745" ext="ice recauth rdserver maudio audio rdclient mvideo auxvideo rdmuxing avcap avavail video" xmlns="http://jabber.org/protocol/caps"/><x xmlns="vcard-temp:x:update"><photo>c895b1aa9942032217e1690a0eb06c3158c02c19</photo></x></presence>
+{"presence":{"from":"sirenita@ontoworks.com/marcelilla0FCBB274","status":"busy","message":""},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+<presence from="zuluagajorge@gmail.com/gmail.2D291600" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>24</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status>&quot;prefiero los errores del entusiasmo que la indiferencia de la sabiduría&quot;, anatole france</status><x xmlns="vcard-temp:x:update"><photo>912264edcf1c4e15ec5f3e2e89ba97678a97d54c</photo></x></presence>
+{"presence":{"from":"zuluagajorge@gmail.com/gmail.2D291600","status":"available","message":"\"prefiero los errores del entusiasmo que la indiferencia de la sabidur\u00eda\", anatole france"},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+<presence id="Q4BgE-70517" from="froy730@gmail.com/c13zdhlX5Q3EF21424" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><status/><show>dnd</show><x xmlns="vcard-temp:x:update"><photo>f587913e8e6428a8da95233092a2357da97f5fb9</photo></x></presence>
+{"presence":{"from":"froy730@gmail.com/c13zdhlX5Q3EF21424","status":"busy","message":""},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+<presence from="nebiros@gmail.com/Talk.v104A6BEF975" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>24</priority><c node="http://www.google.com/xmpp/client/caps" ver="1.0.0.104" ext="share-v1 voice-v1" xmlns="http://jabber.org/protocol/caps"/><x stamp="20110221T18:31:54" xmlns="jabber:x:delay"/><status>Software sucks, 80% of projects fail, and most developers are unhappy individuals.</status><show>dnd</show><x xmlns="vcard-temp:x:update"><photo>60048376f0907bd7bba4eca9d7b51f4c6911fdad</photo></x></presence>
+{"presence":{"from":"nebiros@gmail.com/Talk.v104A6BEF975","status":"busy","message":"Software sucks, 80% of projects fail, and most developers are unhappy individuals."},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+<presence from="jorge.johnson@gmail.com/gmail.2DCAF7F2" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>24</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status>¿ quieres algo ? 
+¡ has que pase !</status><x xmlns="vcard-temp:x:update"/></presence>
+{"presence":{"from":"jorge.johnson@gmail.com/gmail.2DCAF7F2","status":"available","message":"\u00bf quieres algo ? \n\u00a1 has que pase !"},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+<presence from="correo.del.llanox@gmail.com/gmail.2CDB9649" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><show>away</show><priority>0</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><x xmlns="vcard-temp:x:update"><photo>8144db38b0313fa806b7fde2c8ec71778612be79</photo></x></presence>
+{"presence":{"from":"correo.del.llanox@gmail.com/gmail.2CDB9649","status":"idle","message":""},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+<presence from="lmolinav@gmail.com/AdiumA8178CD1" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><c node="http://pidgin.im/" hash="sha-1" ver="VUFD6HcFmUT2NxJkBGCiKlZnS3M=" xmlns="http://jabber.org/protocol/caps"/><x xmlns="vcard-temp:x:update"><photo>9b37650a8d5a08db9213ada7b6ddc34cca00fcce</photo></x></presence>
+{"presence":{"from":"lmolinav@gmail.com/AdiumA8178CD1","status":"available","message":""},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+<presence from="elverb@gmail.com/gmail.2D241036" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><show>away</show><priority>0</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><x xmlns="vcard-temp:x:update"><photo>d40cd827b4d61c03c4658a11fce5300ec02a43bc</photo></x></presence>
+{"presence":{"from":"elverb@gmail.com/gmail.2D241036","status":"idle","message":""},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+<presence from="gapslondo@gmail.com/gmail.481C40D0" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>24</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><show>dnd</show><x xmlns="vcard-temp:x:update"><photo>f7e29fb806f858ae2b3aaaeecb8eafd21ee0db61</photo></x></presence>
+{"presence":{"from":"gapslondo@gmail.com/gmail.481C40D0","status":"busy","message":""},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+<presence from="eamonto@gmail.com/gmail.2D005D37" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>24</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><show>dnd</show><x xmlns="vcard-temp:x:update"><photo>da808decf3031b2a437290903bc313c0dfbc503e</photo></x></presence>
+{"presence":{"from":"eamonto@gmail.com/gmail.2D005D37","status":"busy","message":""},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+<presence from="jorge.norena@gmail.com/gmail.2D4C6F2A" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><show>away</show><priority>0</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 camera-v1 vavinvite-v1 video-v1 voice-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><x xmlns="vcard-temp:x:update"><photo>fa0fb82388181809d570fa00f56e70733aec92b6</photo></x></presence>
+{"presence":{"from":"jorge.norena@gmail.com/gmail.2D4C6F2A","status":"idle","message":""},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+<presence from="picossio@gmail.com/gmail.2D1784EA" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><show>away</show><priority>0</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 vavinvite-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status/><x xmlns="vcard-temp:x:update"><photo>35bd2c7e942ed7f74eaf5fdcdfecc27fbb636f43</photo></x></presence>
+{"presence":{"from":"picossio@gmail.com/gmail.2D1784EA","status":"idle","message":""},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+<presence from="rauchg@gmail.com/gmail.2DF1BF6E" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><priority>24</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 camera-v1 video-v1 voice-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status>away</status><show>dnd</show><x xmlns="vcard-temp:x:update"><photo>f57f6f60acf4e9c3c5cf40118757cbda90e497b4</photo></x></presence>
+{"presence":{"from":"rauchg@gmail.com/gmail.2DF1BF6E","status":"busy","message":"away"},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+<presence from="camilo.aguilar@gmail.com/gmail.2DECB6BD" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><show>away</show><priority>0</priority><caps:c node="http://mail.google.com/xmpp/client/caps" ver="1.1" ext="pmuc-v1 sms-v1 camera-v1 video-v1 voice-v1" xmlns:caps="http://jabber.org/protocol/caps"/><status>at BugLabs</status><x xmlns="vcard-temp:x:update"><photo>db86cfb8b4a1061a13e613f5829b9b38539462ae</photo></x></presence>
+{"presence":{"from":"camilo.aguilar@gmail.com/gmail.2DECB6BD","status":"idle","message":"at BugLabs"},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+Data from CM
+<presence from="camilo.aguilar@gmail.com/AdiumB11F76E8" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><query seconds="208340" xmlns="jabber:iq:last"/><c node="http://pidgin.im/" hash="sha-1" ver="VUFD6HcFmUT2NxJkBGCiKlZnS3M=" xmlns="http://jabber.org/protocol/caps"/><x xmlns="vcard-temp:x:update"><photo>db86cfb8b4a1061a13e613f5829b9b38539462ae</photo></x></presence>
+{"presence":{"from":"camilo.aguilar@gmail.com/AdiumB11F76E8","status":"available","message":""},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+<presence from="camilo.aguilar@gmail.com/Adium1DF99E86" to="sgaviria@gmail.com/5AA034D5" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><c node="http://pidgin.im/" hash="sha-1" ver="VUFD6HcFmUT2NxJkBGCiKlZnS3M=" xmlns="http://jabber.org/protocol/caps"/><x xmlns="vcard-temp:x:update"><photo>db86cfb8b4a1061a13e613f5829b9b38539462ae</photo></x></presence>
+{"presence":{"from":"camilo.aguilar@gmail.com/Adium1DF99E86","status":"available","message":""},"to":"sgaviria@gmail.com/5AA034D5","sid":"9789655157364905","service":"gtalk"}
+[14:35:33] presence
+Data from CM
+[14:35:33] iq
+
+
+
+<iq from="eamonto@gmail.com/gmail.2D005D37" to="sgaviria@gmail.com/56358AA5" id="vc2" type="result" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client"><vCard xmlns="vcard-temp"><FN>Edison Montoya</FN><PHOTO><TYPE>image/jpeg</TYPE><BINVAL>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</BINVAL></PHOTO></vCard></iq>

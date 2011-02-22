@@ -1,0 +1,36 @@
+#client
+  .messages
+    border: 1px solid #AAA
+    width: 200px
+    clear: left
+  #connection-manager 
+    border: 1px solid #AAA
+    background-color: #CCC
+    margin-bottom: 10px
+    float: left
+    padding: 10px
+    font-size: 14px
+    .connect-btn
+      margin-top: 2px
+    .username, .password, .connect-btn
+      float: left
+    .username, .password
+      p.label
+        margin-top: 2px
+      p.label, input
+        float: left
+      margin-right: 10px
+
+#left
+  clear: left
+
+#canvas 
+  #left .accounts-wrapper #buddy-list-box .buddy-list-section ul.buddy-list li.buddy-item .buddy-info
+    width: auto
+  #buddy-list-box .buddy-item
+    .name
+      width: 185px
+    &.offline
+      opacity: 0.5
+      .name
+        margin-top: 10px !important

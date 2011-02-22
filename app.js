@@ -3,8 +3,7 @@ var express = require('express'),
     io = require('socket.io'),
     fs = require('fs'),
     stylus= require('stylus'),
-    net = require('net'),
-    ConnectionManager= require('./lib/xmpp_proxy').ConnectionManager;
+    net = require('net');
 
 var app = module.exports = express.createServer();
 app.set('view engine', 'jade');
@@ -12,14 +11,12 @@ app.configure(function(){
     app.use(express.bodyDecoder());
 });
 
+module.exports.__dirname= __dirname;
+var ConnectionManager= require('./lib/xmpp_proxy').ConnectionManager;
+
 app.get('/*.css', function(req, res) {
     var url= req.url.split('/').reverse();
-    console.log(url);
-    if (url[1] == 'css') {
-	var filename= res.req.params[0].split('/')[1];
-	// var css= convert_sass(__dirname+'/views/'+filename + '.css.sass');
-	res.render(filename + '.css.sass', { layout: false });
-    } else if (url[1] == 'styl') {
+    if (url[1] == 'styl') {
 	var filename= res.req.params[0].split('/')[1];
 	var str= fs.readFileSync(__dirname + '/views/'+filename+'.styl', 'utf8');
 	stylus.render(str, { filename: filename+'.styl' }, function(err, css){
@@ -41,6 +38,14 @@ app.get('/images/*', function(req, res){
 
 app.get('/', function(req, res){
     res.render('index.jade', {
+	locals: {
+	    title: "OntoIM"
+	}
+    });
+});
+
+app.get('/dev/*', function(req, res){
+    res.render("dev/"+req.params[0]+".jade", {
 	locals: {
 	    title: "OntoIM"
 	}
@@ -121,7 +126,8 @@ cm.on('data', function(stream) {
 	var presence_buffer= stream.split("{\"presence\":");
 	if (presence_buffer.length > 1) {
 	    for(var i=1; i < presence_buffer.length; i++) {
-		messages.push(JSON.parse("{\"presence\":"+presence_buffer[i]));
+		var msg= "{\"presence\":"+presence_buffer[i];
+		messages.push(JSON.parse(msg));
 	    }
 	} else {
 	    messages.push(JSON.parse(stream));

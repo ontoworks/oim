@@ -1,3 +1,12 @@
+#client
+  #connection-manager
+    .username
+      p.label Username:
+      input(type:'text')
+    .password
+      p.label Password:
+      input(type:'password')
+    a.connect-btn(href:"#") Connect
 #canvas
   #left
     .status-wrapper
@@ -29,56 +38,21 @@
       #buddy-list-box
         .sections-wrapper
           - each net in ['Chat', 'Gtalk', 'facebook']
-            .buddy-list-section
+            .buddy-list-section(class: net.toLowerCase())
               a.header(href:"#")
                 span.header-icon(class: net.toLowerCase())
                 span.header-label= net
                 span.header-expand
               ul.buddy-list.available
-                - for (var i=0; i < 4; i++)
-                  - bg = (i%2==0) ? 'even' : 'odd'
-                  li.buddy-item(class: bg)
-                    span.status-icon
-                    .buddy-info
-                      p.name pumiprincipis
-                      p.message el de las garritas
-                    img.buddy-photo(src:'/images/buddies/'+((i%2==0) ? 1 : 2)+'.jpg')
+                li.buddy-item.layout
+                  span.status-icon
+                  .buddy-info
+                    p.name pumiprincipis
+                    p.message el de las garritas
+                  img.buddy-photo(src:'/images/buddies/2.jpg')
               ul.buddy-list.busy
-                - for (var i=0; i < 4; i++)
-                  - bg = (i%2==0) ? 'even' : 'odd'
-                  li.buddy-item(class: bg)
-                    span.status-icon
-                    .buddy-info
-                      p.name pumiprincipis
-                      p.message el de las garritas
-                    img.buddy-photo(src:'/images/buddies/'+((i%2==0) ? 1 : 2)+'.jpg')
               ul.buddy-list.idle
-                - for (var i=0; i < 4; i++)
-                  - bg = (i%2==0) ? 'even' : 'odd'
-                  li.buddy-item(class: bg)
-                    span.status-icon
-                    .buddy-info
-                      p.name pumiprincipis
-                      p.message el de las garritas
-                    img.buddy-photo(src:'/images/buddies/'+((i%2==0) ? 1 : 2)+'.jpg')
-              ul.buddy-list.idle
-                - for (var i=0; i < 4; i++)
-                  - bg = (i%2==0) ? 'even' : 'odd'
-                  li.buddy-item.alone(class: bg)
-                    span.status-icon
-                    .buddy-info
-                      p.name pumiprincipis
-                      p.message &nbsp;
-                    img.buddy-photo(src:'/images/buddies/'+((i%2==0) ? 1 : 2)+'.jpg')
               ul.buddy-list.offline
-                - for (var i=0; i < 4; i++)
-                  - bg = (i%2==0) ? 'even' : 'odd'
-                  li.buddy-item(class: bg)
-                    span.status-icon
-                    .buddy-info
-                      p.name pumiprincipis
-                      p.message &nbsp;
-                    img.buddy-photo(src:'/images/buddies/'+((i%2==0) ? 1 : 2)+'.jpg')
       .accounts-footer
   #right
     #chat-sessions

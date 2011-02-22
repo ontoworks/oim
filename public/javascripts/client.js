@@ -1,5 +1,21 @@
-var socket = new io.Socket(null, {port: 80});
-socket.connect();
+jQuery(document).ready(function($) {
+    var socket = new io.Socket(null, {port: 80});
+    socket.connect();
+
+    $(".input input").keyup(function(e) {
+	if (e.keyCode == 13) {
+	    socket.send($(".input input").val());
+	}
+    });
+    
+    // Connection Manager widget
+    $("#connection-manager").find('.connect-btn').click(function() {
+	var username= $("#connection-manager").find(".username input").val();
+	var password= $("#connection-manager").find(".password input").val();
+	var msg= {"session": { "jid":username,"password":password,"host":"talk.google.com","port":5222}, "from":username};
+	socket.send(JSON.stringify(msg));
+    });
+});
 
 var JID= {};
 JID.bare= function(jid) {
@@ -8,17 +24,26 @@ JID.bare= function(jid) {
 
 $.widget('ui.buddy_list', {
     _init: function() {
+	this.element.find(".layout").hide();
     },
     update_buddy: function(buddy) {
+	// console.log(JSON.stringify(buddy));
 	var $el= this.element;
 	var self= this;
-	var status= "online";
+	var status= buddy.presence.status;
 	var $buddy_item= $el.find(".buddy-item[id="+JID.bare(buddy.presence.from)+"]");
 
-	$buddy_item.removeClass("offline online idle away").addClass(status);
-	// state update should not work like this
-	$buddy_item.find(".status-icon").removeClass().addClass('status-icon '+status);
+	// return if no status change is needed
+	if ($buddy_item.hasClass(status)) {
+	    return false;
+	}
+
+	$buddy_item.removeClass("offline available idle busy").addClass(status);
+	if(buddy.presence.message) {
+	    console.log(buddy.presence.message);
+	}
 	$buddy_item.find(".buddy-info .message").text(buddy.presence.message);
+	$buddy_item.find(".buddy-photo").attr("src", buddy.presence.photo);
 	$buddy_item.find(".message").trunc(35);
 
 	// sort buddies alphabetically
@@ -37,7 +62,7 @@ $.widget('ui.buddy_list', {
 	// $contact_item.find(".status").addClass(status);
 	var next;
 	$(contacts_list).each(function(i,v) {
-	    if ($buddy_item.find(".name").text().toLowerCase() <= v.toLowerCase()) {		
+	    if ($buddy_item.find(".name").text().toLowerCase() < v.toLowerCase()) {		
 		next= v;
 		return false;
 	    }
@@ -67,19 +92,28 @@ $.widget('ui.buddy_list', {
     load: function(roster) {
 	var $el= this.element;
 	var service= roster.service;
-	var buddy_item_layout= $el.find(".buddy-list-section."+service+" .buddy-list.offline .buddy-item.layout").clone();
-	buddy_item_layout.removeClass("layout even odd");
+	var $buddy_item_layout= $el.find(".buddy-list-section."+service+" .buddy-list.available .buddy-item.layout").clone();
+	$buddy_item_layout.removeClass("layout even odd");
+	$buddy_item_layout.find(".message").html("&nbsp;");
 	for (var i=0; i<roster.roster.blist.length; i++) {
-	    var buddy_item= buddy_item_layout.clone();
-	    var buddy_jid= roster.roster.blist[i];
-	    buddy_item.attr("id", buddy_jid);
-	    buddy_item.addClass((function(parity) { return (parity%2==0) ? 'even' : 'odd'})(i));
-	    buddy_item.find(".name").text(roster.roster.contacts[buddy_jid].name);
-	    buddy_item.find(".name").trunc(40);
-	    $el.find(".buddy-list-section."+service+" .buddy-list.offline").append(buddy_item.show());
+	    var buddy= roster.roster.blist[i];
+	    var $buddy_item= $buddy_item_layout.clone();
+	    var buddy_jid= buddy.jid;
+	    $buddy_item.attr("id", buddy_jid);
+	    $buddy_item.addClass((function(parity) { return (parity%2==0) ? 'even' : 'odd'})(i));
+	    $buddy_item.find(".name").text(buddy.name);
+	    $buddy_item.find(".name").trunc(40);
+	    $el.find(".buddy-list-section."+service+" .buddy-list.offline").append($buddy_item.show());
 	}
     }
 });
+
+$.widget("ui.sessions_manager", {
+    _init: function() {
+	
+    }
+});
+
 
 $("#buddy-list-box").buddy_list();
 
@@ -104,18 +138,4 @@ socket.on('message', function(msg) {
 	    console.log(msg);
 	}
     }
-});
-
-$(".input input").keyup(function(e) {
-    if (e.keyCode == 13) {
-	socket.send($(".input input").val());
-    }
-});
-
-// Connection Manager widget
-$("#connection-manager").find('.connect-btn').click(function() {
-    var username= $("#connection-manager").find(".username input").val();
-    var password= $("#connection-manager").find(".password input").val();
-    var msg= {"session": { "jid":username,"password":password,"host":"talk.google.com","port":5222}, "from":username};
-    socket.send(JSON.stringify(msg));
 });
