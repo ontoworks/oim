@@ -184,6 +184,7 @@ a
               height: 30px
               width: 100%
               display: block
+              cursor: pointer
               span.status-icon
                 height: 10px
                 width: 10px
@@ -231,7 +232,7 @@ a
                 background: url(/images/sprite-1.png) no-repeat -110px -26px
             &.idle
               .buddy-item .status-icon
-                background: url(/images/sprite-1.png) no-repeat -98px -26px
+                background: url(/images/sprite-1.png) no-repeat -97px -26px
             &.offline
               .buddy-item
                 opacity: 0.5
@@ -278,10 +279,15 @@ a
           span.status-icon
             height: 10px
             width: 10px
-            background: url(/images/sprite-1.png) no-repeat -85px -26px
             float: left
             margin-top: 28px
             margin-left: 10px
+            &.available
+              background: url(/images/sprite-1.png) no-repeat -85px -26px
+            &.idle
+              background: url(/images/sprite-1.png) no-repeat -98px -27px
+            &.busy
+              background: url(/images/sprite-1.png) no-repeat -110px -27px
           .info
             height: 36px
             width: 510px
