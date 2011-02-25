@@ -313,85 +313,86 @@ a
         width: 17px
         float: left
         background: url(/images/sprite-1.png) no-repeat -45px -9px
-    .chat-buffer-wrapper
-      height: 578px
+    .chat-panel
+      background: url(/images/background-right.png) repeat 0 0
       width: 674px
       float: left
-      background: url(/images/background-right.png) repeat 0 0
+      height: 576px
+      .chat-buffer-wrapper
+        height: 542px
+        overflow: auto
       .chat-buffer
-        height: 544px
         width: 652px
         float: left
-        margin-left: 9px
         img.thumb
           float: left
           padding: 2px
-        .message-wrapper
-          width: 622px
-          float: left
-          margin-left: 15px
-          margin-top: 5px
-          img.thumb
-            float: left
-            padding: 2px
-          .message
-            width 590px
-            margin-top: 2px
-            margin-left: 5px          
-            -moz-border-radius: 2px
-            -webkit-border-radius: 2px
-            border-radius: 2px 
-            float: left
-            .message-single
-              margin-left: 5px
-            p
-              font-size: 11px
-              padding: 3px
-              float: left
-            p.single
-              float: left
-              width: 535px
-        .message.odd
-          border: 1px solid #B6DCFC
-          background-color: #F5F9FC
-          p.time
-            color: #B6DCFC
-            float: left
-        .message.even
-          border: 1px solid #CCCCCC
-          background-color: #F7F7F7
-          p.time
-            color: #CCCCCC
-            float: left
-        .multi
-          float: left
-          margin-left: 5px
-        .multi.odd
-          border-bottom: 1px solid #B6DCFC
-        .multi.even
-          border-bottom: 1px solid #CCCCCC
-        .multi.last
-          border: none
-      .send-message
-        height: 32px
-        width: 650px
-        background: url(/images/background-send-message.png) repeat 0 0
+      .message-wrapper
+        width: 622px
         float: left
-        margin-left: 10px
-        border-top: solid 1px #CCCCCC
-        border-bottom: solid 1px #CCCCCC
-        p.label
-          color: #AAAAAA
-          font-size: 12px
+        margin-left: 15px
+        margin-top: 5px
+        img.thumb
           float: left
-          margin-top: 10px
-          margin-left: 17px
-        input
-          height: 22px
-          width: 520px
-          float: left
-          margin-top: 5px
-          margin-left: 15px
+          padding: 2px
+      .message
+        width 590px
+        margin-top: 2px
+        margin-left: 5px          
+        -moz-border-radius: 2px
+        -webkit-border-radius: 2px
+        border-radius: 2px 
+        float: left
+      .message-single
+        margin-left: 5px
+      p
+        font-size: 11px
+        padding: 3px
+        float: left
+      p.single
+        float: left
+        width: 535px
+    .message.odd
+      border: 1px solid #B6DCFC
+      background-color: #F5F9FC
+      p.time
+        color: #B6DCFC
+        float: left
+    .message.even
+      border: 1px solid #CCCCCC
+      background-color: #F7F7F7
+      p.time
+        color: #CCCCCC
+        float: left
+    .multi
+      float: left
+      margin-left: 5px
+    .multi.odd
+      border-bottom: 1px solid #B6DCFC
+    .multi.even
+      border-bottom: 1px solid #CCCCCC
+    .multi.last
+      border: none
+    .send-message
+      height: 32px
+      width: 650px
+      background: url(/images/background-send-message.png) repeat 0 0
+      float: left
+      margin-left: 10px
+      border-top: solid 1px #CCCCCC
+      border-bottom: solid 1px #CCCCCC
+    p.label
+      color: #AAAAAA
+      font-size: 12px
+      float: left
+      margin-top: 10px
+      margin-left: 17px
+    input
+      height: 22px
+      width: 520px
+      float: left
+      margin-top: 5px
+      margin-left: 15px
 
 
           
