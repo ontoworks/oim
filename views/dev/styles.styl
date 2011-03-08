@@ -1,36 +1,441 @@
-#client
-  .messages
-    border: 1px solid #AAA
-    width: 200px
-    clear: left
-  #connection-manager 
-    border: 1px solid #AAA
-    background-color: #CCC
-    margin-bottom: 10px
+*
+  margin: 0
+  padding: 0
+
+a
+  text-decoration: none
+
+#canvas
+  font-family: "Lucida Grande",Arial,Helvetica,Verdana,sans-serif
+  #left
+    height: 650px
+    width: 290px
     float: left
-    padding: 10px
-    font-size: 14px
-    .connect-btn
-      margin-top: 2px
-    .username, .password, .connect-btn
+    .status-wrapper
+      height: 78px
+      width: 265px
       float: left
-    .username, .password
-      p.label
-        margin-top: 2px
-      p.label, input
+      span.left
+        height: 78px
+        width: 17px
         float: left
-      margin-right: 10px
+        background: url(/images/sprite-1.png) no-repeat -12px -9px
+      #status-box
+        height: 78px
+        width: 233px
+        float left
+        background: url(/images/status-wrapper-background.png) repeat 0 0
+        .status-icon
+          height: 10px
+          width: 10px
+          float: left
+          margin-top: 32px
+          margin-left: 1px
+        .status-icon.available  
+          background: url(/images/sprite-1.png) no-repeat -84px -27px
+        .status-icon.idle
+          background: url(/images/sprite-1.png) no-repeat -98px -27px
+        .status-icon.busy
+          background: url(/images/sprite-1.png) no-repeat -110px -27px 
+        .my-info
+          height: 65px
+          width: 150px
+          float: left
+          margin-top: 10px
+          margin-left: 15px
+          p.name
+            color: #FFFFFF
+            font-size: 13px
+            margin-top: 8px
+          p.message
+            color: #EBEBEB
+            font-size: 12px
+            margin-top: 3px
+          a.status 
+            height: 14px
+            width: 80px
+            background: url(/images/sprite-1.png) no-repeat -254px -62px
+            float: left
+            margin-top: 9px
+            span.label
+              color: #999999
+              font-size: 11px
+              float: left
+              padding-left: 10px
+        .photo
+          height: 40px
+          width: 40px
+          float: left
+          margin-top: 23px
+      span.right
+        height: 78px
+        width: 15px
+        float: left
+        background: url(/images/sprite-1.png) no-repeat -45px -9px
+    .accounts-wrapper
+      height: 575px
+      width: 265px
+      background: url(/images/background-left.png) repeat 0 0
+      float: left
+    #search-contact-box
+      height: 20px
+      width: 252px
+      margin-left: 9px
+      margin-top: 4px
+      span.left
+        height: 16px
+        width: 17px
+        background: url(/images/sprite-1.png) no-repeat -155px -2px
+        float: left
+        margin-left: 2px
+      span.center 
+        input
+          height: 16px
+          width: 213px
+          border: 0
+          border-top: 1px solid #DDDDDD
+          border-bottom: 1px solid #DDDDDD
+          float: left 
+      span.right
+        height: 16px
+        width: 17px
+        background: url(/images/sprite-1.png) no-repeat -177px -2px
+        float: left
+    #my-accounts-box
+      height: 20px
+      width: 252px
+      margin-left: 9px
+      background: url(/images/background-buddy-section-header.png) repeat 0 0
+      ul
+        height: 20px
+        width: 150px
+        float: left
+        li
+          height: 16px
+          width: 17px
+          float: left
+          display: block
+          margin-left: 8px
+          margin-top: 3px
+          a.account-icon.gtalk, a.account-icon.facebook, a.account-icon.msn
+            height: 16px
+            width: 17px
+            float: left
+          a.account-icon.gtalk
+            background: url(/images/sprite-1.png) no-repeat -192px -47px  
+          a.account-icon.facebook
+            background: url(/images/sprite-1.png) no-repeat -240px -45px  
+          a.account-icon.msn
+            background: url(/images/sprite-1.png) no-repeat -216px -45px
+    #buddy-list-box
+      height: 510px
+      width: 252px
+      margin-left: 9px
+      .sections-wrapper
+        overflow: auto
+        height: 510px
+        width: 100% 
+        .buddy-list-section
+          a.header
+            height: 20px
+            width: 100%
+            background: url(/images/background-buddy-section-header.png) repeat 0 0
+            float: left
+            border-top: 1px solid #CCCCCC
+            border-bottom: 1px solid #CCCCCC
+            span.header-icon.chat,span.header-icon.gtalk,span.header-icon.facebook
+              height: 16px
+              width: 20px
+              float: left
+              margin-top: 2px
+              margin-left: 7px
+            span.header-icon.chat
+              background: url(/images/sprite-1.png) no-repeat -264px -43px
+            span.header-icon.gtalk
+              background: url(/images/sprite-1.png) no-repeat -191px -45px
+            span.header-icon.facebook
+              background: url(/images/sprite-1.png) no-repeat -239px -44px
+            span.header-label
+              height: 14px
+              width: 120px
+              float: left
+              color: #999999
+              font-size: 13px
+              margin-top: 4px
+              margin-left: 3px
+            span.header-expand
+              height: 5px
+              width: 9px
+              background: url(/images/sprite-1.png) no-repeat -307px -50px
+              float: right
+              margin-top: 7px
+              margin-right: 10px
+            span.header-collapse
+              height 7px
+              width 9px
+              background url(/images/sprite-1.png) no-repeat -293px -49px
+              float left
+              margin-top 7px
+              margin-left 3px
+          ul.buddy-list
+            width: 100%
+            float: left      
+            .buddy-item
+              height: 30px
+              width: 100%
+              display: block
+              cursor: pointer
+              span.status-icon
+                height: 10px
+                width: 10px
+                float: left
+                margin-top: 9px
+                margin-left: 5px
+              &.odd
+                background-color: #FFFFFF
+              &.even
+                background-color: #EEEEEE      
+              .buddy-info
+                height: 30px
+                float: left
+                margin-left: 10px
+                p.name
+                  font-size: 11px
+                  margin-top: 2px
+                  width: 185px
+                p.name.alone
+                  font-size: 11px
+                  margin-top: 9px
+                  width: 185px
+                p.message
+                  font-size: 10px
+                  color: #AAAAAA
+                  width: 185px
+              span.network-icon
+                height: 16px
+                width: 17px
+                background: url(/images/sprite-1.png) no-repeat -190px -47px
+                float: right  
+                margin-top: 8px
+                margin-right: 12px
+              img.buddy-photo
+                height: 20px
+                width: 20px
+                float: right
+                margin-top: 5px
+                margin-right: 7px
+            &.available, &.chat
+              .buddy-item .status-icon, .buddy-item.available .status-icon
+                background: url(/images/sprite-1.png) no-repeat -84px -26px
+            &.busy, &.chat
+              .buddy-item .status-icon, .buddy-item.busy .status-icon
+                background: url(/images/sprite-1.png) no-repeat -110px -26px
+            &.idle, &.chat
+              .buddy-item .status-icon, .buddy-item.idle .status-icon
+                background: url(/images/sprite-1.png) no-repeat -97px -26px
+            &.offline
+              .buddy-item
+                opacity: 0.5
+                p.name
+                  margin-top: 9px
+            .buddy-item.alone 
+              p.name
+                margin-top: 9px
+    .accounts-footer  
+      height: 20px
+      width: 252px
+      margin-left: 9px
+      background: url(/images/background-buddy-section-header.png) repeat 0 0
+      border-top: 1px solid #CCCCCC
+      border-bottom: 1px solid #CCCCCC
+  #right
+    height: 650px
+    width: 700px
+    float: left
+  #chat-sessions
+    height: 650px
+    width: 700px
+    float: left
+    .chat-session
+      .span-left
+        height: 78px
+        width: 17px
+        float: left
+        background: url(/images/sprite-1.png) no-repeat -12px -9px
+      .session-header
+        height: 78px
+        width: 633px
+        float: left
+        background: url(/images/status-wrapper-background.png) repeat 0 0
+        img.photo
+          float: left
+          margin-top: 23px
+          margin-left: 5px
+        .my-info
+          height: 69px 
+          width: 565px
+          float: left
+          margin-top: 10px
+          span.status-icon
+            height: 10px
+            width: 10px
+            float: left
+            margin-top: 28px
+            margin-left: 10px
+            &.available
+              background: url(/images/sprite-1.png) no-repeat -85px -26px
+            &.idle
+              background: url(/images/sprite-1.png) no-repeat -98px -27px
+            &.busy
+              background: url(/images/sprite-1.png) no-repeat -110px -27px
+          .info
+            height: 36px
+            width: 510px
+            float: left
+            margin-top: 12px
+            margin-left: 10px
+            p.name
+              font-size: 13px
+              color: #FFFFFF
+              padding: 3px
+            p.message
+              color: #EBEBEB
+              font-size: 12px
+              padding: 3px
+          span.network-icon.gtalk
+            height: 24px
+            width: 24px
+            background: url(/images/sprite-network.png) no-repeat -3px -3px
+            float: left
+            margin-top: 20px
+      .span-right
+        height: 78px
+        width: 17px
+        float: left
+        background: url(/images/sprite-1.png) no-repeat -45px -9px
+    .chat-buffer-wrapper
+      height: 578px
+      width: 674px
+      float: left
+      background: url(/images/background-right.png) repeat 0 0
+      .chat-buffer
+        height: 544px
+        width: 652px
+        float: left
+        margin-left: 9px
+        img.thumb
+          float: left
+          padding: 2px
+        .message-wrapper
+          width: 622px
+          float: left
+          margin-left: 15px
+          margin-top: 5px
+          img.thumb
+            float: left
+            padding: 2px
+          .message
+            width 590px
+            margin-top: 2px
+            margin-left: 5px          
+            -moz-border-radius: 2px
+            -webkit-border-radius: 2px
+            border-radius: 2px 
+            float: left
+            .message-single
+              margin-left: 5px
+            p
+              font-size: 11px
+              padding: 3px
+              float: left
+            p.single
+              float: left
+              width: 535px
+        .message.odd
+          border: 1px solid #B6DCFC
+          background-color: #F5F9FC
+          p.time
+            color: #B6DCFC
+            float: left
+        .message.even
+          border: 1px solid #CCCCCC
+          background-color: #F7F7F7
+          p.time
+            color: #CCCCCC
+            float: left
+        .multi
+          float: left
+          margin-left: 5px
+        .multi.odd
+          border-bottom: 1px solid #B6DCFC
+        .multi.even
+          border-bottom: 1px solid #CCCCCC
+        .multi.last
+          border: none
+    .send-message
+      height: 32px
+      width: 650px
+      background: url(/images/background-send-message.png) repeat 0 0
+      float: left
+      margin-left: 10px
+      border-top: solid 1px #CCCCCC
+      border-bottom: solid 1px #CCCCCC
+      p.label
+        color: #AAAAAA
+        font-size: 12px
+        float: left
+        margin-top: 10px
+        margin-left: 17px
+      input
+        height: 22px
+        width: 520px
+        float: left
+        margin-top: 5px
+        margin-left: 15px
 
-#left
-  clear: left
+#canvas #chat-sessions .chat-buffer-wrapper .chat-buffer .message-wrapper .message
+  width: 585px
 
-#canvas 
-  #left .accounts-wrapper #buddy-list-box .buddy-list-section ul.buddy-list li.buddy-item .buddy-info
-    width: auto
-  #buddy-list-box .buddy-item
-    .name
-      width: 185px
-    &.offline
-      opacity: 0.5
-      .name
-        margin-top: 10px !important
+#canvas #chat-sessions .chat-session .message-new
+  float: left
+  margin-left: 10px
+  margin-top: 5px
+  .message-buffer
+    float: left
+    margin-left: 5px
+  .line
+    width: 585px
+    float: left
+    clear: left
+    margin: 0 5px
+  .content
+    float: left
+    width: 535px
+  .time
+    float: right
+  .content, .time
+    font-size: 11px
+    padding: 3px
+  &.me
+    .message-buffer
+      background-color: #F5F9FC
+      border: 1px solid #B6DCFC
+      -moz-border-radius: 2px
+    .line
+      border-bottom: 1px solid #B6DCFC
+    .time
+      color: #B6DCFC
+  &.buddy
+    .message-buffer
+      background-color: #F7F7F7
+      border: 1px solid #CCCCCC
+      -moz-border-radius: 2px
+    .line
+      border-bottom: 1px solid #CCCCCC
+    .time
+      color: #CCCCCC
+  .line.last
+    border: 0
+
+#canvas #chat-sessions .chat-buffer-wrapper .chat-buffer
+  overflow: auto

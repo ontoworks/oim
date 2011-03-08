@@ -1,3 +1,19 @@
+<message to="sgaviria@gmail.com/2F3D3F72" type="chat" id="F6FD7695955A610D_0" iconset="classic" from="santiago@ontoworks.com/gmail.5612DC95" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client">
+  <body>tonces</body>
+  <met:google-mail-signature xmlns:met="google:metadata">sCvWKYLYwnPAtTp89CouUA_5EAc</met:google-mail-signature>
+  <cha:active xmlns:cha="http://jabber.org/protocol/chatstates"/>
+  <nos:x value="disabled" xmlns:nos="google:nosave"/>
+  <arc:record otr="false" xmlns:arc="http://jabber.org/protocol/archive"/>
+</message>
+
+<message to="sgaviria@gmail.com/AEDB3235" type="chat" from="santiago@ontoworks.com/gmail.5612DC95" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client">
+  <cha:composing xmlns:cha="http://jabber.org/protocol/chatstates"/>
+  <nos:x value="disabled" xmlns:nos="google:nosave"/>
+  <arc:record otr="false" xmlns:arc="http://jabber.org/protocol/archive"/>
+</message>
+
+
+
 <presence from="sgaviria@gmail.com/neohomeric702C7192" to="sgaviria@gmail.com/9E61881E" xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client">
   <show>xa</show>
   <priority>0</priority>

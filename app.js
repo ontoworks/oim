@@ -1,9 +1,9 @@
-var express = require('express'),
-    sys   = require('sys'),
-    io = require('socket.io'),
-    fs = require('fs'),
+var express= require('express'),
+    sys= require('sys'),
+    io= require('socket.io'),
+    fs= require('fs'),
     stylus= require('stylus'),
-    net = require('net');
+    net= require('net');
 
 var app = module.exports = express.createServer();
 app.set('view engine', 'jade');
@@ -12,7 +12,7 @@ app.configure(function(){
 });
 
 module.exports.__dirname= __dirname;
-var ConnectionManager= require('./lib/xmpp_proxy').ConnectionManager;
+var XmppProxy= require('./lib/xmpp_proxy').XmppProxy;
 
 app.get('/*.css', function(req, res) {
     var url= req.url.split('/').reverse();
@@ -88,7 +88,6 @@ function add_session_id(message, session_id) {
 var io= io.listen(app);
 var _client;
 var buffer= [];
-
 var sessions= {};
 
 io.on('connection', function(client) {
@@ -96,9 +95,9 @@ io.on('connection', function(client) {
     client.send({ buffer: buffer });
 
     client.on('message', function(message){
-	var msg = { message: [client.sessionId, message] };
-	buffer.push(msg);
-	if (buffer.length > 15) buffer.shift();
+	// var msg = { message: [client.sessionId, message] };
+	// buffer.push(msg);
+	// if (buffer.length > 15) buffer.shift();
 	// client.broadcast(msg);
 	message= add_session_id(message, client.sessionId);
 	cm.write(message);
@@ -109,12 +108,48 @@ io.on('connection', function(client) {
     });
 });
 
+var ConnectionManager= function(server) {
+    this.proxy= new XmppProxy();
+    this.websocket= io.listen(server)
+    this.ws= this.websocket;
+    this.sessions= {};
+
+    this.ws.on('message', function(message) {
+	message= add_session_id(message, this.ws.sessionId);
+	this.proxy.send(message);
+    });
+};
+
+// Receives full jid
+ConnectionManager.prototype.get_session= function(jid) {
+    var bare_jid= jid.to.split("/")[0];
+    var resource= jid.to.split("/")[1];
+    
+    // We don't want to lose a message if it's going to a closed session
+    // If that happens we try to redirect to another active session, just any
+    var sid= (function() {
+	var current_sid= sessions[bare_jid][resource];
+	if(io.clients[current_sid]) return sessions[bare_jid][resource];
+	sessions[bare_jid][resource]= undefined;
+	for(res in sessions[bare_jid]) {
+	    return sessions[bare_jid][res];
+	}
+	return false;
+    })();
+    if (sid) return this.ws.clients[sid];
+};
+
 // Connect to XMPP Connection Manager
-new ConnectionManager();
+var conman= new XmppProxy();
 var cm= net.createConnection(8124, 'localhost');
 cm.on('connect', function(stream) {
     cm.setEncoding('utf8');
     console.log("Connected to Connection Manager");
+});
+
+conman.on('self_vcard', function(vCard) {
+    var vCard= JSON.stringify(vCard);
+    console.log(vCard);
 });
 
 cm.on('data', function(stream) {
@@ -143,8 +178,15 @@ cm.on('data', function(stream) {
 		var bare_jid= session.jid.user+"@"+session.jid.domain;
 		if (!sessions[bare_jid]) sessions[bare_jid]= {};
 		sessions[bare_jid][session.jid.resource]= message.sid;
-		console.log(sessions);
+		if (message.sid) io.clients[message.sid].send(JSON.stringify(message));
 	    } else {
+		// console.log(message);
+		if (message.presence) {
+		    // console.log(message);
+		} else if (message.message) {
+		    // console.log(message);
+		}
+
 		var bare_jid= message.to.split("/")[0];
 		var resource= message.to.split("/")[1];
 
