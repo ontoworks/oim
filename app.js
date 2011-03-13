@@ -89,41 +89,41 @@ var io= io.listen(app);
 var _client;
 var buffer= [];
 var sessions= {};
+var sessions_by_sid= {};
 
 io.on('connection', function(client) {
-    var _client= client;
-    client.send({ buffer: buffer });
-
     client.on('message', function(message){
-	// var msg = { message: [client.sessionId, message] };
-	// buffer.push(msg);
-	// if (buffer.length > 15) buffer.shift();
-	// client.broadcast(msg);
 	message= add_session_id(message, client.sessionId);
 	cm.write(message);
     });
     
     client.on('disconnect', function(){
+	conman.end_session(client.sessionId);
+	remove_session(client.sessionId);
 	client.broadcast({ announcement: client.sessionId + ' disconnected' });
     });
 });
 
-var ConnectionManager= function(server) {
-    this.proxy= new XmppProxy();
-    this.websocket= io.listen(server)
-    this.ws= this.websocket;
-    this.sessions= {};
+function remove_session(sid) {
+    if (sessions_by_sid[sid]) {
+	var jid= sessions_by_sid[sid];
+	var rm;
+	for (res in sessions[jid]) {
+	    if (sessions[jid][res] == sid) { 
+		rm= res;
+		break;
+	    }
+	}
+	delete sessions[jid][res];
+	delete sessions_by_sid[sid];
+    }
+}
 
-    this.ws.on('message', function(message) {
-	message= add_session_id(message, this.ws.sessionId);
-	this.proxy.send(message);
-    });
-};
 
 // Receives full jid
-ConnectionManager.prototype.get_session= function(jid) {
-    var bare_jid= jid.to.split("/")[0];
-    var resource= jid.to.split("/")[1];
+function get_session(jid) {
+    var bare_jid= jid.split("/")[0];
+    var resource= jid.split("/")[1];
     
     // We don't want to lose a message if it's going to a closed session
     // If that happens we try to redirect to another active session, just any
@@ -136,8 +136,28 @@ ConnectionManager.prototype.get_session= function(jid) {
 	}
 	return false;
     })();
-    if (sid) return this.ws.clients[sid];
-};
+    if (sid) return io.clients[sid];
+}
+
+function deliver(message) {
+    var bare_jid= message.to.split("/")[0];
+    var resource= message.to.split("/")[1];
+    var sid= [];
+    if (resource) {
+	sid.push(sessions[bare_jid][resource]);
+    } else {
+	for (res in sessions[bare_jid]) {
+	    sid.push(sessions[bare_jid][res]);
+	}
+    }
+    sid.forEach(function(id) {
+	if (io.clients[id]) {
+	    io.clients[id].send(JSON.stringify(message));
+	} else {
+	    console.log("Can't find session "+id);
+	}
+    });
+}
 
 // Connect to XMPP Connection Manager
 var conman= new XmppProxy();
@@ -147,13 +167,20 @@ cm.on('connect', function(stream) {
     console.log("Connected to Connection Manager");
 });
 
-conman.on('self_vcard', function(vCard) {
-    var vCard= JSON.stringify(vCard);
-    console.log(vCard);
+conman.on('self_vcard', function(message) {
+    deliver(message);
 });
 
+conman.on('presence', function(message) {
+    deliver(message);
+});
+
+conman.on('session', function(message) {
+    deliver(message);
+});
+
+
 cm.on('data', function(stream) {
-    console.log("Data from CM");
     var messages= [];
     try {
 	// presence messages sometimes have more than one
@@ -169,6 +196,8 @@ cm.on('data', function(stream) {
 	}
     } catch(err) {
 	console.log("Can't parse JSON");
+	console.log(err);
+	console.log(stream);
     }
     if (messages) {
 	messages.forEach(function(message) {
@@ -177,31 +206,28 @@ cm.on('data', function(stream) {
 		var session= message.session;
 		var bare_jid= session.jid.user+"@"+session.jid.domain;
 		if (!sessions[bare_jid]) sessions[bare_jid]= {};
+		if (!sessions_by_sid[message.sid]) sessions_by_sid[message.sid]= bare_jid;
 		sessions[bare_jid][session.jid.resource]= message.sid;
 		if (message.sid) io.clients[message.sid].send(JSON.stringify(message));
 	    } else {
-		// console.log(message);
-		if (message.presence) {
-		    // console.log(message);
-		} else if (message.message) {
-		    // console.log(message);
-		}
-
 		var bare_jid= message.to.split("/")[0];
 		var resource= message.to.split("/")[1];
-
-		// We don't want to lose a message if it's going to a closed session
-		// If that happens we try to redirect to another active session, just any
-		var sid= (function() {
-		    var current_sid= sessions[bare_jid][resource];
-		    if(io.clients[current_sid]) return sessions[bare_jid][resource];
-		    sessions[bare_jid][resource]= undefined;
-		    for(res in sessions[bare_jid]) {
-			return sessions[bare_jid][res];
+		var sid= [];
+		if (resource) {
+		    sid.push(sessions[bare_jid][resource]);
+		} else {
+		    for (res in sessions[bare_jid]) {
+			sid.push(sessions[bare_jid][res]);
 		    }
-		    return false;
-		})();
-		if (sid) io.clients[sid].send(JSON.stringify(message));
+		}
+		sid.forEach(function(id) {
+		    if (io.clients[id]) {
+			io.clients[id].send(JSON.stringify(message));
+		    } else {
+			console.log("Can't find session "+id);
+		    }
+		});
+
 	    }
 	});
     } else {

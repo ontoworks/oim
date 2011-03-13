@@ -55,6 +55,7 @@
                   .buddy-info
                     p.name pumiprincipis
                     p.message el de las garritas
+                    p.full-message(style:"display:none;") el de las garritas
                   img.buddy-photo(src:'/images/buddies/2.jpg')
               ul.buddy-list.busy
               ul.buddy-list.idle
@@ -76,34 +77,12 @@
         .chat-panel
           .chat-buffer-wrapper
             .chat-buffer
-              .message-new.me.layout
+              .message-new.me.layout(style:'display:none;')
                 img.thumb(src:'/images/buddies/1.jpg')
                 .message-buffer
                   .line.last
                     p.content hola mi carita
                     p.time 12:09
-              - for (var i=0; i < 1; i++)
-                .message-new.buddy
-                  img.thumb(src:'/images/buddies/1.jpg')
-                  .message-buffer
-                    .line
-                      p.content hola mi carita
-                      p.time 12:09
-                    .line
-                      p.content hola mi carita
-                      p.time 12:09
-                    .line
-                      p.content hola mi carita
-                      p.time 12:09
-                    .line
-                      p.content hola mi carita
-                      p.time 12:09
-                    .line
-                      p.content hola mi carita
-                      p.time 12:09
-                    .line.last
-                      p.content hola mi carita hola mi carita hola mi carita hola mi carita hola mi carita hola mi carita hola mi carita hola mi carita hola mi carita hola mi carita hola mi carita
-                      p.time 12:09
           .send-message
             p.label typing...
             input(type:'text')

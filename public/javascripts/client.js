@@ -1,6 +1,31 @@
 var socket;
 var session;
 
+var no_avatar_20= "/images/no-avatar-20x20.png";
+var no_avatar_40= "/images/no-avatar-40x40.png";
+
+function get_buddy() {
+    var $el= this.element;
+    var $buddy_item= $("#status-box");
+    var status= (function($b) {
+	if ($b.hasClass('available')) return 'available';
+	if ($b.hasClass('busy')) return 'busy';
+	if ($b.hasClass('idle')) return 'idle';
+	if ($b.hasClass('offline')) return 'offline';
+    })($("#status-box .status-icon"));
+    return {
+	id: JID.bare(session.user),
+	jid: JID.bare(session.user),
+	name: $buddy_item.find(".name").text(),
+	message: $.trim($buddy_item.find(".full-message").text()),
+	status: status,
+	photo: {
+	    small: session.thumb,
+	    medium: $buddy_item.find(".photo img").attr('src')
+	}
+    }
+}
+
 function truncate(el, len) {
     len = len || 200;
     if (el) {
@@ -29,16 +54,15 @@ JID.bare= function(jid) {
 $.widget('ui.connection_manager', {
     _init: function() {
     },
-    update_self: function(me) {
-	// console.log(me);
+    update_self: function(vcard) {
 	var $el= this.element;
-	var medium_photo= me.presence.photo ? me.presence.photo.medium||'' : '';
+	var small_photo= vcard.photos ? vcard.photos.small||no_avatar_20 : no_avatar_20;
+	var medium_photo= vcard.photos ? vcard.photos.medium||no_avatar_40 : no_avatar_40;
+	session.thumb= small_photo;
 	$el.find(".photo img").attr("src", medium_photo);
-	$el.find(".message").text(me.presence.message);
-	$el.find(".status-icon").removeClass("offline available idle busy").addClass(me.presence.status);
-    },
-    update_name: function(name) {
-	this.element.find(".my-info .name").text(name);
+	$el.find(".message").text("");
+	$el.find(".status-icon").removeClass("offline available idle busy").addClass("available");
+	this.element.find(".my-info .name").text(vcard.name);
     }
 });
 
@@ -48,33 +72,35 @@ $.widget('ui.buddy_list', {
 	this.user= this.options.user;
     },
     update_buddy: function(buddy) {
-	// console.log("update buddy");
 	var $el= this.element;
 	var self= this;
 	var status= buddy.presence.status;
-	// console.log(JID.bare(buddy.presence.from));
+
 	var $buddy_item= $el.find(".buddy-item[id="+JID.bare(buddy.presence.from)+"]");
+	var changed_status= !$buddy_item.hasClass(status);
 
-	// return if no status change is needed
-	if ($buddy_item.hasClass(status)) {
-	    return false;
-	}
-
-	$buddy_item.removeClass("offline available idle busy").addClass(status);
-	if (buddy.presence.message) {
-	    $buddy_item.removeClass("alone");
-	    $buddy_item.find(".buddy-info .message").text(buddy.presence.message);
-	    truncate($buddy_item.find(".buddy-info .message").get(0), 28);
-	} else {
-	    $buddy_item.addClass("alone");
-	}
-
-	var small_photo= buddy.presence.photo ? buddy.presence.photo.small||'' : '';
-	var medium_photo= buddy.presence.photo ? buddy.presence.photo.medium||'' : '';
-	$buddy_item.find(".buddy-photo").attr("src", small_photo);
+	var medium_photo= buddy.presence.photo ? buddy.presence.photo.medium||no_avatar_40 : no_avatar_40;
 	$buddy_item.append($("<input class='buddy-photo-medium' type='hidden' value='"+medium_photo+"'/>"));
 
-	this._update_blist($buddy_item, buddy.service, status);
+	this._update_buddy_item($buddy_item, buddy);
+	if (changed_status) this._update_blist($buddy_item, buddy.service, status);
+
+	// Update buddy-item in Chat Section
+	var $chat_session= $el.find("[id=session-"+JID.bare(buddy.presence.from)+"]");
+	if ($chat_session.length > 0) {
+	    this._update_buddy_item($chat_session, buddy);
+	}
+    },
+    _update_buddy_item: function($buddy_item, buddy) {
+	var status= buddy.presence.status;
+
+	$buddy_item.removeClass("offline available idle busy").addClass(status);
+	$buddy_item.find(".buddy-info").find(".message, .full-message").text(buddy.presence.message);
+	truncate($buddy_item.find(".buddy-info .message").get(0), 28);
+	$.trim(buddy.presence.message) ? $buddy_item.removeClass("alone") : $buddy_item.addClass("alone");
+
+	var small_photo= buddy.presence.photo ? buddy.presence.photo.small||no_avatar_20 : no_avatar_20;
+	$buddy_item.find(".buddy-photo").attr("src", small_photo);
     },
     // Updates a buddy-list qualified by group and status
     // for a new buddy-item
@@ -139,7 +165,7 @@ $.widget('ui.buddy_list', {
 	    $buddy_item.dblclick((function(id, self) { 
 		return function(e) {
 		    self.buddy_to_chat_group(id);
-		    self.element.trigger("open_session", {me:this._get_buddy(this.user),buddy:this._get_buddy(buddy_id)});
+		    self.element.trigger("open_session", [self.get_buddy(id), true]);
 		    e.preventDefault();
 		}
 	    })(buddy.jid, self));
@@ -154,13 +180,13 @@ $.widget('ui.buddy_list', {
 	    $buddy_item.unbind();
 	    $buddy_item.click((function(id, self) {
 		return function(e) {
-		    self.element.trigger("open_session", {me:self._get_buddy(self._get_buddy(self.user)), buddy:self._get_buddy(id)});
+		    self.element.trigger("open_session", [self.get_buddy(id), true]);
 		}
 	    })(buddy_id, this));
 	    this._update_blist($buddy_item.show(), "chat", "chat");
 	}
     },
-    _get_buddy: function(buddy_id) {
+    get_buddy: function(buddy_id) {
 	var $el= this.element;
 	var $buddy_item= $el.find(".buddy-item[id="+buddy_id+"]");
 	var status= (function($b) {
@@ -173,7 +199,7 @@ $.widget('ui.buddy_list', {
 	    id: $buddy_item.attr("id"),
 	    jid: $buddy_item.attr("id"),
 	    name: $buddy_item.find(".name").text(),
-	    message: $.trim($buddy_item.find(".message").text()),
+	    message: $.trim($buddy_item.find(".full-message").text()),
 	    status: status,
 	    photo: {
 		small: $buddy_item.find(".buddy-photo").attr('src'),
@@ -196,21 +222,40 @@ $.widget("ui.sessions_manager", {
     _init: function() {
 	
     },
-    _add_session: function(buddies) {
+    _add_session: function(buddy) {
 	var $el= this.element;
 	var $session_window= $el.find(".chat-session.layout").clone();
 	$session_window.removeClass("layout");
-	$session_window.session_window(buddies);
+	$session_window.session_window({buddy:buddy});
 	$el.append($session_window);
     },
-    open_session: function(buddies) {
+    open_session: function(buddy, show) {
 	var $el= this.element;
-	// console.log(buddies);
-	if ($el.find("[id=chat-session-"+buddies.buddy.jid+"]").length == 0) {
-	    this._add_session(buddies);
+
+	if ($el.find(".chat-session").not(".layout").length == 0) {
+	    show= true;
 	}
+
+	if ($el.find("[id=chat-session-"+buddy.jid+"]").length == 0) {
+	    this._add_session(buddy);
+	}
+
+	if (show) {
+	    this.show_session(buddy.jid);
+	}
+    },
+    show_session: function(jid) {
+	var $el= this.element;
 	$el.find(".chat-session").hide();
-	$el.find("[id=chat-session-"+buddies.buddy.jid+"]").show();
+	$el.find("[id=chat-session-"+jid+"]").show();
+    },
+    update_buddy: function(buddy) {
+	var $el= this.element;
+	var $session= $el.find("[id=chat-session-"+JID.bare(buddy.presence.from)+"]");
+	if ($session.length > 0) {
+	    $session.find(".session-header .status-icon").removeClass().addClass("status-icon "+buddy.presence.status);
+	    $session.find(".session-header .message").text(buddy.presence.message);
+	}
     }
 });
 
@@ -219,11 +264,11 @@ $.widget("ui.session_window", {
 	var $el= this.element;
 	var self= this;
 	this.buddy= this.options.buddy;
-	this.me= this.options.me;
+	this.me= get_buddy();
 
 	$el.find(".info .name").text(this.buddy.name);
 	$el.find(".info .message").text(this.buddy.message);
-	$el.find(".status-icon").addClass(this.buddy.status);
+	$el.find(".status-icon").removeClass().addClass("status-icon "+this.buddy.status);
 	$el.find(".session-header .photo").attr('src', this.buddy.photo.medium);
 	$el.attr("id", "chat-session-"+this.buddy.jid);
 
@@ -260,14 +305,14 @@ $.widget("ui.session_window", {
 	$line.find("p.content").text(message);
 	$line.find("p.time").text(time);
 
-	var $last= $el.find(".message-new:last");
+	var $last= $el.find(".message-new:last").not(".layout");
 	if ($last.hasClass(from)) {
 	    $last.find(".line.last").removeClass("last");
 	    $last.find(".message-buffer").append($line);
 	} else {
 	    var $message= $el.find(".message-new.layout").clone();
 	    $message.find(".thumb").attr("src", this[from].photo.small);
-	    $message.removeClass("layout me buddy").addClass(from);
+	    $message.removeClass("layout me buddy").addClass(from).show();
 	    $message.find(".line").remove();
 	    $message.find(".message-buffer").append($line);
 	    $el.find(".chat-buffer").append($message);
@@ -277,28 +322,30 @@ $.widget("ui.session_window", {
     }
 });
 
-var SessionsManager= {};
-SessionsManager.incoming_message= function(message) {
+function incoming_message(message) {
     var from= JID.bare(message.message.from);
+    var $buddy_list= $("#buddy-list-box");
+
+    var $chat= $("#chat-sessions").find("[id=chat-session-"+from+"]");
+    if ($chat.length > 0) {
+	if ($chat.is(":not(:visible)")) {
+	    // Indicates new message
+	}
+    } else {
+	var buddy= $buddy_list.buddy_list("get_buddy", from);
+	$("#chat-sessions").sessions_manager("open_session", buddy);
+	$buddy_list.buddy_list("buddy_to_chat_group", from);
+	$chat= $("#chat-sessions").find("[id=chat-session-"+from+"]");
+    }
+
     // There are no sessions open
-    if ($("#chat-sessions .chat-session").not(".layout").length == 0) {
-	$("#chat-sessions").sessions_manager("open_session");
-    }
-    // There is at least one active session
-    else {
-	var $chat= $("#chat-sessions").find("[id=chat-session-"+from+"]");
-	$chat.session_window("new_message", message);
-    }
+    $chat.session_window("new_message", message);
 };
 
 jQuery(document).ready(function($) {
     socket = new io.Socket(null, {port: 80});
     session= {};
     socket.connect();
-
-    // Indicates whether self presence have been processed
-    // Should be processed only once
-    var auto_presence= false;
 
     socket.on('message', function(msg) {
 	var message;
@@ -318,16 +365,13 @@ jQuery(document).ready(function($) {
 		session.user= message.to;
 		$("#buddy-list-box").buddy_list("load", message);
 	    } else if(message.presence) {
-		if (JID.bare(message.presence.from)==JID.bare(session.user) && !auto_presence) {
-		    $("#status-box").connection_manager("update_self", message);
-		    auto_presence= true;
-		}
 		$("#buddy-list-box").buddy_list("update_buddy",message);
+		$("#chat-sessions").sessions_manager("update_buddy",message);
 	    } else if(message.message) {
-		SessionsManager.incoming_message(message);
+		incoming_message(message);
 	    } else if(message.vCard) {
-		console.log("llego el vcard");
-		$("#status-box").connection_manager("update_name", message.vCard.name);
+		// console.log("llego el vcard");
+		$("#status-box").connection_manager("update_self", message.vCard);
 	    } else {
 		console.log(msg);
 	    }
@@ -338,6 +382,8 @@ jQuery(document).ready(function($) {
     $("#connection-manager").find('.connect-btn').click(function() {
 	var username= $("#connection-manager").find(".username input").val();
 	var password= $("#connection-manager").find(".password input").val();
+	if (!$.trim(username)) { alert("You must enter a username"); return false; }
+	if (!$.trim(password)) { alert("You must enter a password"); return false; }
 	var msg= {"session": { "jid":username,"password":password,"host":"talk.google.com","port":5222}, "from":username};
 	socket.send(JSON.stringify(msg));
     });
@@ -346,7 +392,7 @@ jQuery(document).ready(function($) {
 
     $("#buddy-list-box").buddy_list({user:session.user});
     $("#chat-sessions").sessions_manager();
-    $("#buddy-list-box").bind("open_session", function(e, buddy) {
-	$("#chat-sessions").sessions_manager("open_session", buddy);
+    $("#buddy-list-box").bind("open_session", function(e, buddy, show) {
+	$("#chat-sessions").sessions_manager("open_session", buddy, show);
     });
 });
