@@ -38,28 +38,29 @@
       #buddy-list-box
         .sections-wrapper
           .buddy-list-section.chat
-            a.header(href:"#")
+            a.header
               span.header-icon.chat
               span.header-label Chat
-              span.header-expand
-            ul.buddy-list.chat
+            .buddy-list-wrapper
+              ul.buddy-list.chat
           - each net in ['Gtalk', 'facebook']
             .buddy-list-section(class: net.toLowerCase())
-              a.header(href:"#")
+              a.header.down(href:"#")
                 span.header-icon(class: net.toLowerCase())
                 span.header-label= net
-                span.header-expand
-              ul.buddy-list.available
-                li.buddy-item.layout
-                  span.status-icon
-                  .buddy-info
-                    p.name pumiprincipis
-                    p.message el de las garritas
-                    p.full-message(style:"display:none;") el de las garritas
-                  img.buddy-photo(src:'/images/buddies/2.jpg')
-              ul.buddy-list.busy
-              ul.buddy-list.idle
-              ul.buddy-list.offline
+                span.click.header-expand
+              .buddy-list-wrapper
+                ul.buddy-list.available
+                  li.buddy-item.layout
+                    span.status-icon
+                    .buddy-info
+                      p.name pumiprincipis
+                      p.message el de las garritas
+                      p.full-message(style:"display:none;") el de las garritas
+                    img.buddy-photo(src:'/images/buddies/2.jpg')
+                ul.buddy-list.busy
+                ul.buddy-list.idle
+                ul.buddy-list.offline
       .accounts-footer
   #right
     #chat-sessions

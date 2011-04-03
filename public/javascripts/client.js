@@ -68,8 +68,29 @@ $.widget('ui.connection_manager', {
 
 $.widget('ui.buddy_list', {
     _init: function() {
-	this.element.find(".layout").hide();
+	var $el= this.element;
+	$el.find(".layout").hide();
 	this.user= this.options.user;
+
+	$el.find(".header").bind('click', function(e) {
+	    $(this).blur();
+	    var $wrapper= $(this).closest(".buddy-list-section").find(".buddy-list-wrapper");
+	    var action= $(this).hasClass("up") ? 'expand' : ( $(this).hasClass("down") ? 'collapse' : '' );
+	    var header= this;
+	    if (action == 'collapse') {
+		$wrapper.slideUp(function() {
+		    $(header).removeClass("down").addClass("up");
+		    $(header).find(".click").removeClass().addClass("click header-collapse");
+		});
+	    }
+	    if (action == 'expand') {
+		$wrapper.slideDown(function() {
+		    $(header).removeClass("up").addClass("down");
+		    $(header).find(".click").removeClass().addClass("click header-expand");
+		});
+	    }
+	    e.preventDefault();
+	});
     },
     update_buddy: function(buddy) {
 	var $el= this.element;
@@ -77,6 +98,7 @@ $.widget('ui.buddy_list', {
 	var status= buddy.presence.status;
 
 	var $buddy_item= $el.find(".buddy-item[id="+JID.bare(buddy.presence.from)+"]");
+	var prev_status= $buddy_item.attr("class");
 	var changed_status= !$buddy_item.hasClass(status);
 
 	var medium_photo= buddy.presence.photo ? buddy.presence.photo.medium||no_avatar_40 : no_avatar_40;
@@ -84,11 +106,22 @@ $.widget('ui.buddy_list', {
 
 	this._update_buddy_item($buddy_item, buddy);
 	if (changed_status) this._update_blist($buddy_item, buddy.service, status);
+	
+	var $items= $el.find(".buddy-item[id="+JID.bare(buddy.presence.from)+"]");
+	if ($items.length > 1) {
+	    var str= buddy.presence.from+"\n";
+	    str += "Prev status: "+prev_status+"\n";
+	    str += "Current status: "+status+"\n";
+	    socket.send(JSON.stringify({error:str}));
+	}
 
 	// Update buddy-item in Chat Section
 	var $chat_session= $el.find("[id=session-"+JID.bare(buddy.presence.from)+"]");
 	if ($chat_session.length > 0) {
 	    this._update_buddy_item($chat_session, buddy);
+	    if (status == 'offline') {
+		$chat_session.addClass("offline");
+	    }
 	}
     },
     _update_buddy_item: function($buddy_item, buddy) {
@@ -244,10 +277,14 @@ $.widget("ui.sessions_manager", {
 	    this.show_session(buddy.jid);
 	}
     },
+    close_session: function(jid) {
+	this.element.find("[id=chat-session-"+jid+"]").remove();
+    },
     show_session: function(jid) {
 	var $el= this.element;
 	$el.find(".chat-session").hide();
 	$el.find("[id=chat-session-"+jid+"]").show();
+	$el.find("[id=chat-session-"+jid+"] .send-message input").focus();
     },
     update_buddy: function(buddy) {
 	var $el= this.element;
@@ -394,5 +431,8 @@ jQuery(document).ready(function($) {
     $("#chat-sessions").sessions_manager();
     $("#buddy-list-box").bind("open_session", function(e, buddy, show) {
 	$("#chat-sessions").sessions_manager("open_session", buddy, show);
+    });
+    $("#buddy-list-box").bind("close_session", function(e, buddy, show) {
+	$("#chat-sessions").sessions_manager("close_session", buddy_id);
     });
 });

@@ -8,7 +8,7 @@ var express= require('express'),
 var app = module.exports = express.createServer();
 app.set('view engine', 'jade');
 app.configure(function(){
-    app.use(express.bodyDecoder());
+    app.use(express.bodyParser());
 });
 
 module.exports.__dirname= __dirname;
@@ -175,62 +175,75 @@ conman.on('presence', function(message) {
     deliver(message);
 });
 
-conman.on('session', function(message) {
+conman.on('roster', function(message) {
     deliver(message);
 });
 
-
-cm.on('data', function(stream) {
-    var messages= [];
-    try {
-	// presence messages sometimes have more than one
-	// JSON literal after another
-	var presence_buffer= stream.split("{\"presence\":");
-	if (presence_buffer.length > 1) {
-	    for(var i=1; i < presence_buffer.length; i++) {
-		var msg= "{\"presence\":"+presence_buffer[i];
-		messages.push(JSON.parse(msg));
-	    }
-	} else {
-	    messages.push(JSON.parse(stream));
-	}
-    } catch(err) {
-	console.log("Can't parse JSON");
-	console.log(err);
-	console.log(stream);
-    }
-    if (messages) {
-	messages.forEach(function(message) {
-	    // console.log(message);
-	    if (message.session) {
-		var session= message.session;
-		var bare_jid= session.jid.user+"@"+session.jid.domain;
-		if (!sessions[bare_jid]) sessions[bare_jid]= {};
-		if (!sessions_by_sid[message.sid]) sessions_by_sid[message.sid]= bare_jid;
-		sessions[bare_jid][session.jid.resource]= message.sid;
-		if (message.sid) io.clients[message.sid].send(JSON.stringify(message));
-	    } else {
-		var bare_jid= message.to.split("/")[0];
-		var resource= message.to.split("/")[1];
-		var sid= [];
-		if (resource) {
-		    sid.push(sessions[bare_jid][resource]);
-		} else {
-		    for (res in sessions[bare_jid]) {
-			sid.push(sessions[bare_jid][res]);
-		    }
-		}
-		sid.forEach(function(id) {
-		    if (io.clients[id]) {
-			io.clients[id].send(JSON.stringify(message));
-		    } else {
-			console.log("Can't find session "+id);
-		    }
-		});
-
-	    }
-	});
-    } else {
-	console.log(stream);
-    }
+conman.on('message', function(message) {
+    deliver(message);
 });
+
+conman.on('session', function(message) {
+    var session= message.session;
+    var bare_jid= session.jid.user+"@"+session.jid.domain;
+    if (!sessions[bare_jid]) sessions[bare_jid]= {};
+    if (!sessions_by_sid[message.sid]) sessions_by_sid[message.sid]= bare_jid;
+    sessions[bare_jid][session.jid.resource]= message.sid;
+    if (message.sid) io.clients[message.sid].send(JSON.stringify(message));
+});
+
+
+// cm.on('data', function(stream) {
+//     var messages= [];
+//     try {
+// 	// presence messages sometimes have more than one
+// 	// JSON literal after another
+// 	var presence_buffer= stream.split("{\"presence\":");
+// 	if (presence_buffer.length > 1) {
+// 	    for(var i=1; i < presence_buffer.length; i++) {
+// 		var msg= "{\"presence\":"+presence_buffer[i];
+// 		messages.push(JSON.parse(msg));
+// 	    }
+// 	} else {
+// 	    messages.push(JSON.parse(stream));
+// 	}
+//     } catch(err) {
+// 	console.log("Can't parse JSON");
+// 	console.log(err);
+// 	console.log(stream);
+//     }
+//     if (messages) {
+// 	messages.forEach(function(message) {
+// 	    // console.log(message);
+// 	    if (message.session) {
+// 		var session= message.session;
+// 		var bare_jid= session.jid.user+"@"+session.jid.domain;
+// 		if (!sessions[bare_jid]) sessions[bare_jid]= {};
+// 		if (!sessions_by_sid[message.sid]) sessions_by_sid[message.sid]= bare_jid;
+// 		sessions[bare_jid][session.jid.resource]= message.sid;
+// 		if (message.sid) io.clients[message.sid].send(JSON.stringify(message));
+// 	    } else {
+// 		var bare_jid= message.to.split("/")[0];
+// 		var resource= message.to.split("/")[1];
+// 		var sid= [];
+// 		if (resource) {
+// 		    sid.push(sessions[bare_jid][resource]);
+// 		} else {
+// 		    for (res in sessions[bare_jid]) {
+// 			sid.push(sessions[bare_jid][res]);
+// 		    }
+// 		}
+// 		sid.forEach(function(id) {
+// 		    if (io.clients[id]) {
+// 			io.clients[id].send(JSON.stringify(message));
+// 		    } else {
+// 			console.log("Can't find session "+id);
+// 		    }
+// 		});
+
+// 	    }
+// 	});
+//     } else {
+// 	console.log(stream);
+//     }
+// });
