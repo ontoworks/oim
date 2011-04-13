@@ -1,12 +1,17 @@
 #client
   #connection-manager
-    .username
-      p.label Username:
-      input(type:'text')
-    .password
-      p.label Password:
-      input(type:'password')
-    a.connect-btn(href:"#") Connect
+    .connect
+      a#connect-gmail(href:"#") Gmail
+      a#connect-fb(href:"#") Facebook
+    #cm-facebook
+    #cm-gmail(style:"display:none")
+      .username
+        p.label Username:
+        input(type:'text')
+      .password
+        p.label Password:
+        input(type:'password')
+      a.connect-btn(href:"#") Connect
 #canvas
   #left(style:"display:none")
     .status-wrapper
@@ -87,3 +92,4 @@
           .send-message
             p.label typing...
             input(type:'text')
+#fb-root

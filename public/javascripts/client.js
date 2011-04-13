@@ -435,4 +435,38 @@ jQuery(document).ready(function($) {
     $("#buddy-list-box").bind("close_session", function(e, buddy, show) {
 	$("#chat-sessions").sessions_manager("close_session", buddy_id);
     });
+
+    window.fbAsyncInit = function() {
+	FB.init({appId: '270579051603', status: true, cookie: true, xfbml: true});
+    };
+
+    $(".connect a").click(function(e) {
+	if($(this).attr("id") == "connect-gmail") {
+	    $("#cm-gmail").show();
+	}
+	if($(this).attr("id") == "connect-fb") {
+	    FB.login(function(response) {
+		if (response.session) {
+		    if (response.perms) {
+			// user is logged in and granted some permissions.
+			// perms is a comma separated list of granted permissions
+		    } else {
+			// user is logged in, but did not grant any permissions
+		    }
+		} else {
+		    // user is not logged in
+		}
+	    }, {perms:'xmpp_login'});
+	}
+	e.preventDefault();
+    });
+
+    (function() {
+	var e = document.createElement('script');
+	e.type = 'text/javascript';
+	e.src = document.location.protocol +
+	    '//connect.facebook.net/es_LA/all.js';
+	e.async = true;
+	document.getElementById('fb-root').appendChild(e);
+    }());
 });
