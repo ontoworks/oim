@@ -450,6 +450,9 @@ jQuery(document).ready(function($) {
 		    if (response.perms) {
 			// user is logged in and granted some permissions.
 			// perms is a comma separated list of granted permissions
+			console.log(response.session);
+			var msg= {"facebook": { "jid":response.session.uid,"host":"facebook.com"}};
+			socket.send(msg);
 		    } else {
 			// user is logged in, but did not grant any permissions
 		    }
