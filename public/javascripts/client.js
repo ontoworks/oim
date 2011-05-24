@@ -51,6 +51,10 @@ JID.bare= function(jid) {
     return jid.split('/')[0];
 };
 
+/*
+ * Connection Manager
+ *
+ */
 $.widget('ui.connection_manager', {
     _init: function() {
     },
@@ -66,6 +70,10 @@ $.widget('ui.connection_manager', {
     }
 });
 
+/*
+ * Buddy List
+ *
+ */
 $.widget('ui.buddy_list', {
     _init: function() {
 	var $el= this.element;
@@ -112,7 +120,7 @@ $.widget('ui.buddy_list', {
 	    var str= buddy.presence.from+"\n";
 	    str += "Prev status: "+prev_status+"\n";
 	    str += "Current status: "+status+"\n";
-	    socket.send(JSON.stringify({error:str}));
+	    socket.send({error:str});
 	}
 
 	// Update buddy-item in Chat Section
@@ -242,6 +250,10 @@ $.widget('ui.buddy_list', {
     }
 });
 
+/*
+ * Buddy Item
+ *
+ */
 $.widget("ui.buddy_item", {
     _init: function() {
     },
@@ -251,6 +263,10 @@ $.widget("ui.buddy_item", {
     }
 });
 
+/*
+ * Sessions Manager (Chat Sessions)
+ *
+ */
 $.widget("ui.sessions_manager", {
     _init: function() {
 	
@@ -296,6 +312,10 @@ $.widget("ui.sessions_manager", {
     }
 });
 
+/*
+ * (Chat) Session Window
+ *
+ */
 $.widget("ui.session_window", {
     _init: function() {
 	var $el= this.element;
@@ -312,17 +332,18 @@ $.widget("ui.session_window", {
 	// send message
 	$el.find(".send-message input").keyup(function(e) {
 	    if (e.keyCode == 13) {
-		var msg= {message:{to:self._buddy(), content:$(this).val()},from:session.user};
+		var msg= {message:{to:self._buddy(), body:$(this).val()},from:session.user};
+		console.log(self._buddy());
 		self._render_message($(this).val(), 'me');
 		$(this).val("");
-		socket.send(JSON.stringify(msg));
+		socket.send(msg);
 	    }
 	});
     },
     _buddy: function() {
 	var $el= this.element;
 	// splits chat-session-user@domain.com
-	return $el.attr("id").split("-")[2];
+	return $el.attr("id").split("-")[2]||"-"+$el.attr("id").split("-")[3];
     },
     new_message: function(message) {
 	if (message.message.body) {
@@ -382,24 +403,15 @@ function incoming_message(message) {
 jQuery(document).ready(function($) {
     socket = new io.Socket(null, {port: 80});
     session= {};
+    sessions= {};
     socket.connect();
 
-    socket.on('message', function(msg) {
-	var message;
-	try {
-	    if (typeof msg == 'object') {
-	    // should be a buffer only
-	    } else {
-		message= JSON.parse(msg);
-	    }
-	} catch(err) {
-	    console.log(err);
-	}	
+    socket.on('message', function(message) {
 	if (message) {
 	    if (message.session) {
-		$("#left").show();
 	    } else if (message.roster) {
 		session.user= message.to;
+		$("#left").show();
 		$("#buddy-list-box").buddy_list("load", message);
 	    } else if(message.presence) {
 		$("#buddy-list-box").buddy_list("update_buddy",message);
@@ -407,10 +419,9 @@ jQuery(document).ready(function($) {
 	    } else if(message.message) {
 		incoming_message(message);
 	    } else if(message.vCard) {
-		// console.log("llego el vcard");
 		$("#status-box").connection_manager("update_self", message.vCard);
 	    } else {
-		console.log(msg);
+		console.log(message);
 	    }
 	}
     });
@@ -421,8 +432,8 @@ jQuery(document).ready(function($) {
 	var password= $("#connection-manager").find(".password input").val();
 	if (!$.trim(username)) { alert("You must enter a username"); return false; }
 	if (!$.trim(password)) { alert("You must enter a password"); return false; }
-	var msg= {"session": { "jid":username,"password":password,"host":"talk.google.com","port":5222}, "from":username};
-	socket.send(JSON.stringify(msg));
+	var msg= {"session": { "jid":username,"password":password,"host":"talk.google.com","port":5222, service:"gtalk"}, "from":username};
+	socket.send(msg);
     });
     $("#status-box").connection_manager();
 
@@ -436,8 +447,15 @@ jQuery(document).ready(function($) {
 	$("#chat-sessions").sessions_manager("close_session", buddy_id);
     });
 
+    /*
+     * Facebook Integration
+     *
+     */
     window.fbAsyncInit = function() {
 	FB.init({appId: '270579051603', status: true, cookie: true, xfbml: true});
+	FB.Event.subscribe('auth.login', function(response) {
+	    console.log("User logged in");
+	});
     };
 
     $(".connect a").click(function(e) {
@@ -448,10 +466,7 @@ jQuery(document).ready(function($) {
 	    FB.login(function(response) {
 		if (response.session) {
 		    if (response.perms) {
-			// user is logged in and granted some permissions.
-			// perms is a comma separated list of granted permissions
-			console.log(response.session);
-			var msg= {"facebook": { "jid":response.session.uid,"host":"facebook.com"}};
+			var msg= {session: { service: "facebook", "uid":response.session.uid, "session_key":response.session.session_key}};
 			socket.send(msg);
 		    } else {
 			// user is logged in, but did not grant any permissions
@@ -468,7 +483,7 @@ jQuery(document).ready(function($) {
 	var e = document.createElement('script');
 	e.type = 'text/javascript';
 	e.src = document.location.protocol +
-	    '//connect.facebook.net/es_LA/all.js';
+	    '//connect.facebook.net/en_US/all.js';
 	e.async = true;
 	document.getElementById('fb-root').appendChild(e);
     }());

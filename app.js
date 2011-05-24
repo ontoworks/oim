@@ -12,7 +12,15 @@ app.configure(function(){
 });
 
 module.exports.__dirname= __dirname;
-var XmppProxy= require('./lib/xmpp_proxy').XmppProxy;
+
+var db= require('./lib/model');
+db.connect('mongodb://localhost/urbanitus');
+module.exports.db= db;
+
+var domain= require('./lib/domain');
+module.exports.domain= domain;
+
+var ConnectionManager= require('./lib/connection_manager').ConnectionManager;
 
 app.get('/*.css', function(req, res) {
     var url= req.url.split('/').reverse();
@@ -72,17 +80,8 @@ app.listen(8080);
 
 // Adds session_id to a JSON string
 function add_session_id(message, session_id) {
-    var parse;
-    try {
-	parse= JSON.parse(message);
-    } catch(err) {
-	console.log(err);
-    }
-    if(parse) {
-	parse.sid= session_id;
-	message= JSON.stringify(parse);
-	return message;
-    }
+    message.sid= session_id;
+    return message;
 }
 
 var io= io.listen(app);
@@ -91,103 +90,70 @@ var buffer= [];
 var sessions= {};
 var sessions_by_sid= {};
 
+var cm= new ConnectionManager();
+
 io.on('connection', function(client) {
     client.on('message', function(message){
 	message= add_session_id(message, client.sessionId);
-	cm.write(message);
+	cm.send(message);
     });
     
     client.on('disconnect', function(){
-	conman.end_session(client.sessionId);
-	remove_session(client.sessionId);
+	cm.close(client.sessionId);
 	client.broadcast({ announcement: client.sessionId + ' disconnected' });
     });
 });
 
-function remove_session(sid) {
-    if (sessions_by_sid[sid]) {
-	var jid= sessions_by_sid[sid];
-	var rm;
-	for (res in sessions[jid]) {
-	    if (sessions[jid][res] == sid) { 
-		rm= res;
-		break;
-	    }
-	}
-	delete sessions[jid][res];
-	delete sessions_by_sid[sid];
-    }
-}
-
-
-// Receives full jid
-function get_session(jid) {
-    var bare_jid= jid.split("/")[0];
-    var resource= jid.split("/")[1];
-    
-    // We don't want to lose a message if it's going to a closed session
-    // If that happens we try to redirect to another active session, just any
-    var sid= (function() {
-	var current_sid= sessions[bare_jid][resource];
-	if(io.clients[current_sid]) return sessions[bare_jid][resource];
-	sessions[bare_jid][resource]= undefined;
-	for(res in sessions[bare_jid]) {
-	    return sessions[bare_jid][res];
-	}
-	return false;
-    })();
-    if (sid) return io.clients[sid];
-}
 
 function deliver(message) {
-    var bare_jid= message.to.split("/")[0];
-    var resource= message.to.split("/")[1];
-    var sid= [];
-    if (resource) {
-	sid.push(sessions[bare_jid][resource]);
-    } else {
-	for (res in sessions[bare_jid]) {
-	    sid.push(sessions[bare_jid][res]);
-	}
-    }
-    sid.forEach(function(id) {
-	if (io.clients[id]) {
-	    io.clients[id].send(JSON.stringify(message));
-	} else {
-	    console.log("Can't find session "+id);
-	}
-    });
+    io.clients[message.sid].send(message);
 }
 
-// Connect to XMPP Connection Manager
-var conman= new XmppProxy();
-var cm= net.createConnection(8124, 'localhost');
-cm.on('connect', function(stream) {
-    cm.setEncoding('utf8');
-    console.log("Connected to Connection Manager");
-});
-
-conman.on('self_vcard', function(message) {
+cm.on('message', function(message) {
     deliver(message);
 });
 
-conman.on('presence', function(message) {
-    deliver(message);
-});
 
-conman.on('roster', function(message) {
-    deliver(message);
-});
 
-conman.on('message', function(message) {
-    deliver(message);
-});
 
-conman.on('session', function(message) {
-    var session= message.session;
-    var bare_jid= session.jid.user+"@"+session.jid.domain;
-    if (!sessions[bare_jid]) sessions[bare_jid]= {};
-    if (!sessions_by_sid[message.sid]) sessions_by_sid[message.sid]= bare_jid;
-    sessions[bare_jid][session.jid.resource]= message.sid;
-    if (message.sid) io.clients[message.sid].send(JSON.stringify(message));
-});
+
+
+
+
+
+
+
+// function remove_session(sid) {
+//     if (sessions_by_sid[sid]) {
+// 	var jid= sessions_by_sid[sid];
+// 	var rm;
+// 	for (res in sessions[jid]) {
+// 	    if (sessions[jid][res] == sid) { 
+// 		rm= res;
+// 		break;
+// 	    }
+// 	}
+// 	delete sessions[jid][res];
+// 	delete sessions_by_sid[sid];
+//     }
+// }
+
+
+// // Receives full jid
+// function get_session(jid) {
+//     var bare_jid= jid.split("/")[0];
+//     var resource= jid.split("/")[1];
+    
+//     // We don't want to lose a message if it's going to a closed session
+//     // If that happens we try to redirect to another active session, just any
+//     var sid= (function() {
+// 	var current_sid= sessions[bare_jid][resource];
+// 	if(io.clients[current_sid]) return sessions[bare_jid][resource];
+// 	sessions[bare_jid][resource]= undefined;
+// 	for(res in sessions[bare_jid]) {
+// 	    return sessions[bare_jid][res];
+// 	}
+// 	return false;
+//     })();
+//     if (sid) return io.clients[sid];
+// }
