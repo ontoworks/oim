@@ -140,8 +140,8 @@ $.widget('ui.buddy_list', {
 	truncate($buddy_item.find(".buddy-info .message").get(0), 28);
 	$.trim(buddy.presence.message) ? $buddy_item.removeClass("alone") : $buddy_item.addClass("alone");
 
-	var small_photo= buddy.presence.photo ? buddy.presence.photo.small||no_avatar_20 : no_avatar_20;
-	$buddy_item.find(".buddy-photo").attr("src", small_photo);
+	// var small_photo= buddy.presence.photo ? buddy.presence.photo.small||no_avatar_20 : no_avatar_20;
+	// $buddy_item.find(".buddy-photo").attr("src", small_photo);
     },
     // Updates a buddy-list qualified by group and status
     // for a new buddy-item
@@ -247,6 +247,12 @@ $.widget('ui.buddy_list', {
 		medium: $buddy_item.find(".buddy-photo-medium").val()
 	    }
 	}
+    },
+    update_avatar: function(message) {
+	var $el= this.element;
+	var vCard= message.vCard;
+	var thumb_path= vCard.photo.path ? vCard.photo.path||no_avatar_20 : no_avatar_20;
+	$el.find("[id="+vCard.from+"] img.buddy-photo").attr("src", thumb_path);
     }
 });
 
@@ -419,7 +425,8 @@ jQuery(document).ready(function($) {
 	    } else if(message.message) {
 		incoming_message(message);
 	    } else if(message.vCard) {
-		$("#status-box").connection_manager("update_self", message.vCard);
+		// $("#status-box").connection_manager("update_self", message.vCard);
+		$("#buddy-list-box").buddy_list("update_avatar",message);
 	    } else {
 		console.log(message);
 	    }
