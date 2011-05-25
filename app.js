@@ -106,7 +106,11 @@ io.on('connection', function(client) {
 
 
 function deliver(message) {
-    io.clients[message.sid].send(message);
+    try {
+	io.clients[message.sid].send(message);
+    } catch(err) {
+	console.log("Couldn't find session "+message.sid);
+    }
 }
 
 cm.on('message', function(message) {

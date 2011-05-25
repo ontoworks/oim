@@ -202,6 +202,10 @@ $.widget('ui.buddy_list', {
 	    $buddy_item.attr("id", buddy_jid);
 	    $buddy_item.addClass((function(parity) { return (parity%2==0) ? 'even' : 'odd'})(i));
 	    $buddy_item.find(".name").text(buddy.name);
+
+	    var thumb_path= roster.roster.contacts[buddy_jid].thumb_path ? roster.roster.contacts[buddy_jid].thumb_path : no_avatar_20;
+	    $buddy_item.find(".buddy-photo").attr('src', thumb_path);
+
 	    truncate($buddy_item.find(".name").get(0), 26);
 	    $buddy_item.dblclick((function(id, self) { 
 		return function(e) {
